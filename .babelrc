@@ -1,0 +1,8 @@
+{
+  "presets": [
+    ["babel-preset-gatsby-package", { "browser": true }]
+  ],
+  "plugins": [
+    ["@babel/plugin-proposal-private-methods", { "loose": false }]
+  ]
+}
