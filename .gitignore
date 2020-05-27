@@ -1,6 +1,2 @@
 node_modules/
-
-# Ignore built babel files
-/*.js
-/gatsby/*.js
-/browser-agents
+/dist
