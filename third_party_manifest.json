@@ -1,0 +1,101 @@
+{
+  "lastUpdated": "Thu May 28 2020 11:12:50 GMT-0400 (Eastern Daylight Time)",
+  "projectName": "gatsby-plugin-newrelic",
+  "projectUrl": "https://github.com/newrelic/gatsby-plugin-newrelic",
+  "includeDev": true,
+  "dependencies": {
+    "@babel/runtime@7.10.0": {
+      "name": "@babel/runtime",
+      "version": "7.10.0",
+      "range": "^7.0.0",
+      "licenses": "MIT",
+      "repoUrl": "https://github.com/babel/babel",
+      "versionedRepoUrl": "https://github.com/babel/babel/tree/v7.10.0",
+      "licenseFile": "node_modules/@babel/runtime/LICENSE",
+      "licenseUrl": "https://github.com/babel/babel/blob/v7.10.0/LICENSE",
+      "licenseTextSource": "file",
+      "publisher": "Sebastian McKenzie",
+      "email": "sebmck@gmail.com"
+    }
+  },
+  "devDependencies": {
+    "@babel/cli@7.10.0": {
+      "name": "@babel/cli",
+      "version": "7.10.0",
+      "range": "^7.0.0",
+      "licenses": "MIT",
+      "repoUrl": "https://github.com/babel/babel/tree/master/packages/babel-cli",
+      "versionedRepoUrl": "https://github.com/babel/babel/tree/master/packages/babel-cli/tree/v7.10.0",
+      "licenseFile": "node_modules/@babel/cli/LICENSE",
+      "licenseUrl": "https://github.com/babel/babel/tree/master/packages/babel-cli/blob/v7.10.0/LICENSE",
+      "licenseTextSource": "file",
+      "publisher": "Sebastian McKenzie",
+      "email": "sebmck@gmail.com"
+    },
+    "@babel/core@7.10.0": {
+      "name": "@babel/core",
+      "version": "7.10.0",
+      "range": "^7.0.0",
+      "licenses": "MIT",
+      "repoUrl": "https://github.com/babel/babel/tree/master/packages/babel-core",
+      "versionedRepoUrl": "https://github.com/babel/babel/tree/master/packages/babel-core/tree/v7.10.0",
+      "licenseFile": "node_modules/@babel/core/LICENSE",
+      "licenseUrl": "https://github.com/babel/babel/tree/master/packages/babel-core/blob/v7.10.0/LICENSE",
+      "licenseTextSource": "file",
+      "publisher": "Sebastian McKenzie",
+      "email": "sebmck@gmail.com"
+    },
+    "@babel/plugin-proposal-private-methods@7.8.3": {
+      "name": "@babel/plugin-proposal-private-methods",
+      "version": "7.8.3",
+      "range": "^7.8.3",
+      "licenses": "MIT",
+      "repoUrl": "https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-private-methods",
+      "versionedRepoUrl": "https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-private-methods/tree/v7.8.3",
+      "licenseFile": "node_modules/@babel/plugin-proposal-private-methods/LICENSE",
+      "licenseUrl": "https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-private-methods/blob/v7.8.3/LICENSE",
+      "licenseTextSource": "file"
+    },
+    "@testing-library/react@9.5.0": {
+      "name": "@testing-library/react",
+      "version": "9.5.0",
+      "range": "^9.5.0",
+      "licenses": "MIT",
+      "repoUrl": "https://github.com/testing-library/react-testing-library",
+      "versionedRepoUrl": "https://github.com/testing-library/react-testing-library/tree/v9.5.0",
+      "licenseFile": "node_modules/@testing-library/react/LICENSE",
+      "licenseUrl": "https://github.com/testing-library/react-testing-library/blob/v9.5.0/LICENSE",
+      "licenseTextSource": "file",
+      "publisher": "Kent C. Dodds",
+      "email": "kent@doddsfamily.us",
+      "url": "http://kentcdodds.com/"
+    },
+    "babel-preset-gatsby-package@0.1.4": {
+      "name": "babel-preset-gatsby-package",
+      "version": "0.1.4",
+      "range": "^0.1.4",
+      "licenses": "MIT",
+      "repoUrl": "https://github.com/gatsbyjs/gatsby",
+      "versionedRepoUrl": "https://github.com/gatsbyjs/gatsby/tree/v0.1.4",
+      "licenseFile": "node_modules/babel-preset-gatsby-package/LICENSE",
+      "licenseUrl": "https://github.com/gatsbyjs/gatsby/blob/v0.1.4/LICENSE",
+      "licenseTextSource": "file",
+      "publisher": "Philipp Spiess",
+      "email": "hello@philippspiess.com"
+    },
+    "cross-env@5.2.1": {
+      "name": "cross-env",
+      "version": "5.2.1",
+      "range": "^5.2.1",
+      "licenses": "MIT",
+      "repoUrl": "https://github.com/kentcdodds/cross-env",
+      "versionedRepoUrl": "https://github.com/kentcdodds/cross-env/tree/v5.2.1",
+      "licenseFile": "node_modules/cross-env/LICENSE",
+      "licenseUrl": "https://github.com/kentcdodds/cross-env/blob/v5.2.1/LICENSE",
+      "licenseTextSource": "file",
+      "publisher": "Kent C. Dodds",
+      "email": "kent@doddsfamily.us",
+      "url": "http://kentcdodds.com/"
+    }
+  }
+}
