@@ -3,17 +3,8 @@ import { liteAgent, proAgent, proAndSpaAgent } from '../browser-agents/latest';
 
 export default ({ setHeadComponents }, pluginOptions) => {
   const {
-    instrumentationType = 'lite', // Options are 'lite', 'pro', 'proAndSPA'
     configs: userConfigs
   } = pluginOptions;
-
-  const allowedInstrumentationTypes = ['lite', 'pro', 'proAndSPA'];
-  const itExists = allowedInstrumentationTypes.find(
-    i => i === instrumentationType
-  );
-  if (!itExists) {
-    // TO DO - Error/Warn about wrong instrumentation type
-  }
 
   const requiredConfigs = {
     accountId: '',
@@ -21,11 +12,29 @@ export default ({ setHeadComponents }, pluginOptions) => {
     agentID: '',
     licenseKey: '',
     applicationID: '',
-    beacon: '',
-    errorBeacon: ''
+    beacon: 'bam.nr-data.net',
+    errorBeacon: 'bam.nr-data.net',
+    instrumentationType: 'lite' // Options are 'lite', 'pro', 'proAndSPA'
   };
 
-  const options = { ...requiredConfigs, ...userConfigs };
+  const env = process.env.NODE_ENV;
+  const userEnvConfig = userConfigs[env];
+  if (!userEnvConfig) {
+    // TO DO - Error/Warn about missing config option for a given env
+    console.warn('gatsby-plugin-newrelic is missing the configuration for the ' + env + ' environment');
+    return;
+  }
+
+  const allowedInstrumentationTypes = ['lite', 'pro', 'proAndSPA'];
+  const itExists = allowedInstrumentationTypes.find(
+    i => i === userEnvConfig.instrumentationType
+  );
+  if (!itExists) {
+    // TO DO - Error/Warn about wrong instrumentation type
+  }
+
+  const options = { ...requiredConfigs, ...userEnvConfig };
+  const instrumentationType = options.instrumentationType;
 
   const emptyOptions = Object.entries(options).filter(([, v]) => v === '');
   if (emptyOptions.length > 0) {
