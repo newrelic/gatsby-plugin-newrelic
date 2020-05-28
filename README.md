@@ -1,27 +1,50 @@
 [![Community Project header](https://github.com/newrelic/open-source-office/raw/master/examples/categories/images/Community_Project.png)](https://github.com/newrelic/open-source-office/blob/master/examples/categories/index.md#community-project)
 
-# [Name of Project] [build badges go here when available]
+# New Relic Gatsby Plugin
 
->[Brief description - what value does this software provide? How often should users expect to get releases? How is versioning set up? Where does this project want to go?]
+The New Relic Gatsby Plugin provides a simple to use configuration option for instrumenting your Gatsby site with [New Relic's Browser Agent](https://newrelic.com/products/browser-monitoring).
 
 ## Installation
 
-> [Include a step-by-step procedure on how to get your code installed. Be sure to include any third party dependencies that need to be installed separately]
+1. If you don't already have a New Relic account, [sign-up for our free no credit-card trial/developer tier](https://newrelic.com/signup/?partner=Developer+Edition)
+1. Go to [https://rpm.newrelic.com](https://rpm.newrelic.com)
+1. Select the "Browser" product from the navigation
+1. Click on "Add more" to add your website
+1. Select "Copy/Paste Javascript code"
+1. Under "Choose your instrumentation" select Lite, Pro, or Pro + SPA
+1. Enter your app name
+1. Click "Enable"
+1. Copy the JS snippet into a text editor or scroll to the bottom for the config information needed for the this plugin
+1. You'll need to copy information from a snippet like this:
+  ```js
+  ;NREUM.loader_config={accountID:"<your account id>",trustKey:"<some integer>",agentID:"<some integer>",licenseKey:"<your license key>",applicationID:"<some integer>"}
+  ;NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"<your license key>",applicationID:"<some integer>",sa:1}
+  ```
+
+  and turn it into a `gatsby-config` for this plugin that looks like:
+  
+  ```js
+  {
+    resolve: 'gatsby-plugin-newrelic',
+    options: {
+      instrumentationType: 'proAndSPA', // Options are 'lite', 'pro', 'proAndSPA'
+      configs: {
+        accountId: '<some integer>',
+        trustKey: '<some integer>',
+        agentID: '<some integer>',
+        licenseKey: '<the license key>',
+        applicationID: '<some integer>',
+        beacon: 'bam.nr-data.net',
+        errorBeacon: 'bam.nr-data.net'
+      }
+    }
+  }
+  ```
+1. Add this to your `gatsby-config.js` file for your project
 
 ## Getting Started
->Simple steps to start working with the software similar to a "Hello World"
 
-## Usage - optional
->Include more thorough instructions on how to use the software. This section may not be needed if the Getting Started section is enough.
-
-
-## Building - optional
-
->Include this section if users will need to follow specific instructions to build the software from source. Be sure to include any third party build dependencies that need to be installed separately
-
-## Testing - optional
-
->Include instructions on how to run tests if we include tests with the codebase
+Navigate to [https://one.newrelic.com](https://one.newrelic.com), select the _Entity Explorer_ and then select your browser application to monitor metrics of your site.
 
 ## Support
 
