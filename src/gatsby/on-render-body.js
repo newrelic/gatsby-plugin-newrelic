@@ -17,7 +17,14 @@ export default ({ setHeadComponents }, pluginOptions) => {
     instrumentationType: 'lite' // Options are 'lite', 'pro', 'proAndSPA'
   };
 
-  const env = process.env.NODE_ENV;
+  const env = process.env.GATSBY_NEWRELIC_ENV;
+
+  if (!env) {
+    // TO DO - Error/Warn about envVariable not being set
+    console.warn('GATSBY_NEWRELIC_ENV env variable is not set');
+    return;
+  }
+
   const userEnvConfig = userConfigs[env];
   if (!userEnvConfig) {
     // TO DO - Error/Warn about missing config option for a given env
