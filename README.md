@@ -16,30 +16,32 @@ The New Relic Gatsby Plugin provides a simple to use configuration option for in
 1. Click "Enable"
 1. Copy the JS snippet into a text editor or scroll to the bottom for the config information needed for the this plugin
 1. You'll need to copy information from a snippet like this:
-  ```js
-  ;NREUM.loader_config={accountID:"<your account id>",trustKey:"<some integer>",agentID:"<some integer>",licenseKey:"<your license key>",applicationID:"<some integer>"}
-  ;NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"<your license key>",applicationID:"<some integer>",sa:1}
-  ```
 
-  and turn it into a `gatsby-config` for this plugin that looks like:
-  
-  ```js
-  {
-    resolve: 'gatsby-plugin-newrelic',
-    options: {
-      instrumentationType: 'proAndSPA', // Options are 'lite', 'pro', 'proAndSPA'
-      configs: {
-        accountId: '<some integer>',
-        trustKey: '<some integer>',
-        agentID: '<some integer>',
-        licenseKey: '<the license key>',
-        applicationID: '<some integer>',
-        beacon: 'bam.nr-data.net',
-        errorBeacon: 'bam.nr-data.net'
+    ```js
+    ;NREUM.loader_config={accountID:"<your account id>",trustKey:"<some integer>",agentID:"<some integer>",licenseKey:"<your license key>",applicationID:"<some integer>"}
+    ;NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"<your license key>",applicationID:"<some integer>",sa:1}
+    ```
+
+    and turn it into a `gatsby-config` for this plugin that looks like:
+
+    ```js
+    {
+      resolve: 'gatsby-plugin-newrelic',
+      options: {
+        instrumentationType: 'proAndSPA', // Options are 'lite', 'pro', 'proAndSPA'
+        configs: {
+          accountId: '<some integer>',
+          trustKey: '<some integer>',
+          agentID: '<some integer>',
+          licenseKey: '<the license key>',
+          applicationID: '<some integer>',
+          beacon: 'bam.nr-data.net',
+          errorBeacon: 'bam.nr-data.net'
+        }
       }
     }
-  }
-  ```
+    ```
+
 1. Add this to your `gatsby-config.js` file for your project
 
 ## Getting Started
@@ -53,10 +55,11 @@ New Relic hosts and moderates an online forum where customers can interact with 
 >Add the url for the support thread here
 
 ## Contributing
+
 Full details about how to contribute to
 Contributions to improve [Project Name] are encouraged! Keep in mind when you submit your pull request, you'll need to sign the CLA via the click-through using CLA-Assistant. You only have to sign the CLA one time per project.
 To execute our corporate CLA, which is required if your contribution is on behalf of a company, or if you have any questions, please drop us an email at opensource@newrelic.com.
 
 ## License
-[Project Name] is licensed under the [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.txt) License.
->[If applicable: The [Project Name] also uses source code from third party libraries. Full details on which libraries are used and the terms under which they are licensed can be found in the third party notices document.]
+
+`gatsby-plugin-newrelic` is licensed under the [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.txt) License. `gatsby-plugin-newrelic` also uses source code from third party libraries. Full details on which libraries are used and the terms under which they are licensed can be found in the third party notices document.
