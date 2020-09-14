@@ -31,7 +31,7 @@ The New Relic Gatsby Plugin provides a simple to use configuration option for in
       options: {
         configs: {
           dev: {
-            instrumentationType: 'proAndSPA',
+            instrumentationType: 'spa',
             accountId: '<some integer>',
             trustKey: '<some integer>',
             agentID: '<some integer>',
@@ -41,7 +41,7 @@ The New Relic Gatsby Plugin provides a simple to use configuration option for in
             errorBeacon: 'bam.nr-data.net'
           },
           staging: {
-            instrumentationType: 'proAndSPA',
+            instrumentationType: 'spa',
             accountId: '<some integer>',
             trustKey: '<some integer>',
             agentID: '<some integer>',
@@ -51,7 +51,7 @@ The New Relic Gatsby Plugin provides a simple to use configuration option for in
             errorBeacon: 'bam.nr-data.net'
           },
           production: {
-            instrumentationType: 'proAndSPA',
+            instrumentationType: 'spa',
             accountId: '<some integer>',
             trustKey: '<some integer>',
             agentID: '<some integer>',
