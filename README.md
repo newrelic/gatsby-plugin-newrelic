@@ -10,39 +10,92 @@ The New Relic Gatsby Plugin provides a simple to use configuration option for in
 1. Go to [https://rpm.newrelic.com](https://rpm.newrelic.com)
 1. Select the "Browser" product from the navigation
 1. Click on "Add more" to add your website
-1. Select "Copy/Paste Javascript code"
+1. Select "Copy/Paste Javascript code" and copy the code
 1. Under "Choose your instrumentation" select Lite, Pro, or Pro + SPA
 1. Enter your app name
 1. Click "Enable"
-1. Copy the JS snippet into a text editor or scroll to the bottom for the config information needed for the this plugin
-1. You'll need to copy information from a snippet like this:
+1. Paste the JS snippet provided into a text editor
+1. Open your `gatsby-config.js` file for your project
+1. You'll need to copy information from the JS snippet, which looks like this:
 
     ```js
     ;NREUM.loader_config={accountID:"<your account id>",trustKey:"<some integer>",agentID:"<some integer>",licenseKey:"<your license key>",applicationID:"<some integer>"}
     ;NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"<your license key>",applicationID:"<some integer>",sa:1}
     ```
 
-    and turn it into a `gatsby-config` for this plugin that looks like:
+    and turn it into a `gatsby-config`, adding it to `gatsby-config.js` as a plugin
 
     ```js
     {
       resolve: 'gatsby-plugin-newrelic',
       options: {
-        instrumentationType: 'proAndSPA', // Options are 'lite', 'pro', 'proAndSPA'
         configs: {
-          accountId: '<some integer>',
-          trustKey: '<some integer>',
-          agentID: '<some integer>',
-          licenseKey: '<the license key>',
-          applicationID: '<some integer>',
-          beacon: 'bam.nr-data.net',
-          errorBeacon: 'bam.nr-data.net'
+          dev: {
+            instrumentationType: 'proAndSPA',
+            accountId: '<some integer>',
+            trustKey: '<some integer>',
+            agentID: '<some integer>',
+            licenseKey: '<the license key>',
+            applicationID: '<some integer>',
+            beacon: 'bam.nr-data.net',
+            errorBeacon: 'bam.nr-data.net'
+          },
+          staging: {
+            instrumentationType: 'proAndSPA',
+            accountId: '<some integer>',
+            trustKey: '<some integer>',
+            agentID: '<some integer>',
+            licenseKey: '<the license key>',
+            applicationID: '<some integer>',
+            beacon: 'bam.nr-data.net',
+            errorBeacon: 'bam.nr-data.net'
+          },
+          production: {
+            instrumentationType: 'proAndSPA',
+            accountId: '<some integer>',
+            trustKey: '<some integer>',
+            agentID: '<some integer>',
+            licenseKey: '<the license key>',
+            applicationID: '<some integer>',
+            beacon: 'bam.nr-data.net',
+            errorBeacon: 'bam.nr-data.net'
+          }
         }
       }
     }
     ```
 
-1. Add this to your `gatsby-config.js` file for your project
+    If you have no need for multiple environments, you can simply pass a single object like:
+
+    ```js
+    {
+      resolve: 'gatsby-plugin-newrelic',
+      options: {
+        configs: {
+          instrumentationType: 'proAndSPA',
+            accountId: '<some integer>',
+            trustKey: '<some integer>',
+            agentID: '<some integer>',
+            licenseKey: '<the license key>',
+            applicationID: '<some integer>',
+            beacon: 'bam.nr-data.net',
+            errorBeacon: 'bam.nr-data.net'
+        }
+      }
+    }
+    ```
+
+    Note - `instrumentationType` can be `lite`, `pro`, `proAndSPA`, corresponding with levels of our browser agent.
+
+1. Set the `GATSBY_NEWRELIC_ENV` to point at the appropriate config. For local dev you would add `GATSBY_NEWRELIC_ENV=dev` to the front of your "develop" script in your project's `package.json`. For "production" you would add `GATSBY_NEWRELIC_ENV=production` to the front of the Gatsby "build" command.
+    Ex. `package.json`:
+
+    ```js
+      "scripts": {
+        "build": "GATSBY_NEWRELIC_ENV=production gatsby build",
+        "build:dev": "GATSBY_NEWRELIC_ENV=dev npm run build",
+      }
+    ```
 
 ## Getting Started
 
