@@ -25,7 +25,7 @@ export default ({ setHeadComponents }, pluginOptions) => {
     return;
   }
 
-  const userEnvConfig = userConfigs[env];
+  const userEnvConfig = userConfigs[env] ? userConfigs[env] : userConfigs;
   if (!userEnvConfig) {
     // TO DO - Error/Warn about missing config option for a given env
     console.warn('gatsby-plugin-newrelic is missing the configuration for the ' + env + ' environment');
