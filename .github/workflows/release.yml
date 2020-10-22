@@ -201,7 +201,7 @@ jobs:
             console.log("Result:", result)
 
       - name: Update dist-tag
-        if: contains(github.ref, "next")
+        if: contains(github.ref, 'next')
         run: |
           npm install -g json
           json -I -f package.json -e 'this.publishConfig.tag="next"'
