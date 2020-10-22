@@ -115,9 +115,10 @@ jobs:
         id: disable-branch-protection
         if: always()
         uses: actions/github-script@v1
+        env:
+          GITHUB_BRANCH: ${{ steps.extract_source.outputs.branch }}
         with:
           github-token: ${{ secrets.OPENSOURCE_BOT_TOKEN }}
-          github-branch: ${{ steps.extract_source.outputs.branch }}
           previews: luke-cage-preview
           script: |
             const result = await github.repos.updateBranchProtection({
@@ -142,9 +143,10 @@ jobs:
         id: enable-branch-protection
         if: always()
         uses: actions/github-script@v1
+        env:
+          GITHUB_BRANCH: ${{ steps.extract_source.outputs.branch }}
         with:
           github-token: ${{ secrets.OPENSOURCE_BOT_TOKEN }}
-          github-branch: ${{ steps.extract_source.outputs.branch }}
           previews: luke-cage-preview
           script: |
             const result = await github.repos.updateBranchProtection({
@@ -193,10 +195,11 @@ jobs:
         id: disable-branch-protection
         if: always()
         uses: actions/github-script@v1
+        env:
+          GITHUB_BRANCH: ${{ steps.extract_source.outputs.branch }}
         with:
           github-token: ${{ secrets.OPENSOURCE_BOT_TOKEN }}
           previews: luke-cage-preview
-          github-branch: ${{ steps.extract_source.outputs.branch }}
           script: |
             const result = await github.repos.updateBranchProtection({
               owner: context.repo.owner,
@@ -230,10 +233,11 @@ jobs:
         id: enable-branch-protection
         if: always()
         uses: actions/github-script@v1
+        env:
+          GITHUB_BRANCH: ${{ steps.extract_source.outputs.branch }}
         with:
           github-token: ${{ secrets.OPENSOURCE_BOT_TOKEN }}
           previews: luke-cage-preview
-          github-branch: ${{ steps.extract_source.outputs.branch }}
           script: |
             const result = await github.repos.updateBranchProtection({
               owner: context.repo.owner,
