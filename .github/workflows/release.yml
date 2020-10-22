@@ -40,6 +40,11 @@ jobs:
         run: |
           npm run build
 
+      - name: Extract branch name
+        run: |
+          echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+
   job-generate-third-party-notices:
     runs-on: ubuntu-latest
     needs: job-checkout-and-build
@@ -115,7 +120,7 @@ jobs:
             const result = await github.repos.updateBranchProtection({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              branch: 'main',
+              branch: ${{ steps.extract_branch.outputs.branch }},
               required_status_checks: null,
               restrictions: null,
               enforce_admins: null,
@@ -128,7 +133,7 @@ jobs:
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.OPENSOURCE_BOT_TOKEN }}
-          branch: main
+          branch: ${{ steps.extract_branch.outputs.branch }}
 
       - name: Re-enable "required_pull_request_reviews" branch protection
         id: enable-branch-protection
@@ -141,7 +146,7 @@ jobs:
             const result = await github.repos.updateBranchProtection({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              branch: 'main',
+              branch: ${{ steps.extract_branch.outputs.branch }},
               required_status_checks: null,
               restrictions: null,
               enforce_admins: null,
@@ -155,12 +160,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: [job-checkout-and-build, job-generate-third-party-notices]
     steps:
-      # Checkout ref: main because previous job committed third_party_notices and
-      # we need to checkout main to pick up that commit
+      # Checkout specific branch we just committed third_party_notices too
       - name: Checkout repo
         uses: actions/checkout@v2
         with:
-          ref: main
+          ref: ${{ steps.extract_branch.outputs.branch }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v1
@@ -192,7 +196,7 @@ jobs:
             const result = await github.repos.updateBranchProtection({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              branch: 'main',
+              branch: ${{ steps.extract_branch.outputs.branch }},
               required_status_checks: null,
               restrictions: null,
               enforce_admins: null,
@@ -228,7 +232,7 @@ jobs:
             const result = await github.repos.updateBranchProtection({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              branch: 'main',
+              branch: ${{ steps.extract_branch.outputs.branch }},
               required_status_checks: null,
               restrictions: null,
               enforce_admins: null,
