@@ -40,10 +40,12 @@ jobs:
         run: |
           npm run build
 
-      - name: Extract branch name
+      - name: Extract source variables
         run: |
-          echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
+          echo ::set-output name=name::${GITHUB_REF#refs/*/}
+          echo ::set-output name=branch::${GITHUB_REF#refs/heads/}
+          echo ::set-output name=tag::${GITHUB_REF#refs/tags/}
+        id: extract_source
 
   job-generate-third-party-notices:
     runs-on: ubuntu-latest
@@ -115,12 +117,13 @@ jobs:
         uses: actions/github-script@v1
         with:
           github-token: ${{ secrets.OPENSOURCE_BOT_TOKEN }}
+          github-branch: ${{ steps.extract_source.outputs.branch }}
           previews: luke-cage-preview
           script: |
             const result = await github.repos.updateBranchProtection({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              branch: ${{ steps.extract_branch.outputs.branch }},
+              branch: process.env.GITHUB_BRANCH,
               required_status_checks: null,
               restrictions: null,
               enforce_admins: null,
@@ -133,7 +136,7 @@ jobs:
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.OPENSOURCE_BOT_TOKEN }}
-          branch: ${{ steps.extract_branch.outputs.branch }}
+          branch: ${{ steps.extract_source.outputs.branch }}
 
       - name: Re-enable "required_pull_request_reviews" branch protection
         id: enable-branch-protection
@@ -141,12 +144,13 @@ jobs:
         uses: actions/github-script@v1
         with:
           github-token: ${{ secrets.OPENSOURCE_BOT_TOKEN }}
+          github-branch: ${{ steps.extract_source.outputs.branch }}
           previews: luke-cage-preview
           script: |
             const result = await github.repos.updateBranchProtection({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              branch: ${{ steps.extract_branch.outputs.branch }},
+              branch: process.env.GITHUB_BRANCH,
               required_status_checks: null,
               restrictions: null,
               enforce_admins: null,
@@ -164,7 +168,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
         with:
-          ref: ${{ steps.extract_branch.outputs.branch }}
+          ref: ${{ steps.extract_source.outputs.branch }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v1
@@ -192,11 +196,12 @@ jobs:
         with:
           github-token: ${{ secrets.OPENSOURCE_BOT_TOKEN }}
           previews: luke-cage-preview
+          github-branch: ${{ steps.extract_source.outputs.branch }}
           script: |
             const result = await github.repos.updateBranchProtection({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              branch: ${{ steps.extract_branch.outputs.branch }},
+              branch: process.env.GITHUB_BRANCH,
               required_status_checks: null,
               restrictions: null,
               enforce_admins: null,
@@ -228,11 +233,12 @@ jobs:
         with:
           github-token: ${{ secrets.OPENSOURCE_BOT_TOKEN }}
           previews: luke-cage-preview
+          github-branch: ${{ steps.extract_source.outputs.branch }}
           script: |
             const result = await github.repos.updateBranchProtection({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              branch: ${{ steps.extract_branch.outputs.branch }},
+              branch: process.env.GITHUB_BRANCH,
               required_status_checks: null,
               restrictions: null,
               enforce_admins: null,
