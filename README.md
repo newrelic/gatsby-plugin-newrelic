@@ -1,12 +1,14 @@
 [![Community Project header](https://github.com/newrelic/open-source-office/raw/master/examples/categories/images/Community_Project.png)](https://github.com/newrelic/open-source-office/blob/master/examples/categories/index.md#community-project)
 
 # New Relic Gatsby Plugin
+[![Known Vulnerabilities][3]][4]
+[![npm status badge][1]][2]
 
 The New Relic Gatsby Plugin provides a simple to use configuration option for instrumenting your Gatsby site with [New Relic's Browser Agent](https://newrelic.com/products/browser-monitoring).
 
 ## Installation
 
-1. If you don't already have a New Relic account, [sign-up for our free no credit-card trial/developer tier](https://newrelic.com/signup/?partner=Developer+Edition)
+1. If you don't already have a New Relic account, [sign-up for our free forever tier - no credit-card required!](https://newrelic.com/signup)
 1. Go to [https://rpm.newrelic.com](https://rpm.newrelic.com)
 1. Select the "Browser" product from the navigation
 1. Click on "Add more" to add your website
@@ -116,3 +118,8 @@ To execute our corporate CLA, which is required if your contribution is on behal
 ## License
 
 `gatsby-plugin-newrelic` is licensed under the [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.txt) License. `gatsby-plugin-newrelic` also uses source code from third party libraries. Full details on which libraries are used and the terms under which they are licensed can be found in the third party notices document.
+
+[1]: https://nodei.co/npm/gatsby-plugin-newrelic.png
+[2]: https://nodei.co/npm/gatsby-plugin-newrelic
+[3]: https://snyk.io/test/github/newrelic/gatsby-plugin-newrelic/badge.svg?targetFile=package.json
+[4]: https://snyk.io/test/github/newrelic/gatsby-plugin-newrelic?targetFile=package.json
