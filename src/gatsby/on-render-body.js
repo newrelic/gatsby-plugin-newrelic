@@ -1,5 +1,22 @@
 import React from 'react';
-import { liteAgent, proAgent, proAndSpaAgent } from '../browser-agents/latest';
+
+function getCdnFromInstrumentationType(instrumentationType) {
+  const lite = 'http://js-agent.newrelic.com/nr-loader-rum-current.min.js';
+  const pro = 'https://js-agent.newrelic.com/nr-loader-full-current.min.js';
+  const spa = 'https://js-agent.newrelic.com/nr-loader-spa-current.min.js';
+
+  switch (instrumentationType) {
+    case 'spa':
+      return spa;
+    case 'pro':
+      return pro;
+    case 'lite':
+      return lite;
+    default:
+      console.warn('Unsupported Instrumentation Type set, please provide "spa", "pro", or "lite"');
+      return spa;
+  }
+}
 
 export default ({ setHeadComponents }, pluginOptions) => {
   const {
@@ -14,7 +31,7 @@ export default ({ setHeadComponents }, pluginOptions) => {
     applicationID: '',
     beacon: 'bam.nr-data.net',
     errorBeacon: 'bam.nr-data.net',
-    instrumentationType: 'lite' // Options are 'lite', 'pro', 'proAndSPA'
+    instrumentationType: 'spa' // Options are 'lite', 'pro', 'spa'
   };
 
   const env = process.env.GATSBY_NEWRELIC_ENV;
@@ -32,7 +49,7 @@ export default ({ setHeadComponents }, pluginOptions) => {
     return;
   }
 
-  const allowedInstrumentationTypes = ['lite', 'pro', 'proAndSPA'];
+  const allowedInstrumentationTypes = ['lite', 'pro', 'spa'];
   const itExists = allowedInstrumentationTypes.find(
     i => i === userEnvConfig.instrumentationType
   );
@@ -48,18 +65,12 @@ export default ({ setHeadComponents }, pluginOptions) => {
     // TO DO - Warn about missing options
   }
 
-  let agent;
-  if (instrumentationType === 'lite') {
-    agent = liteAgent;
-  }
+  const init = `
+    window.NREUM||(NREUM={});
+    NREUM.init={distributed_tracing:{enabled:false},privacy:{cookies_enabled:true}};
+  `;
 
-  if (instrumentationType === 'pro') {
-    agent = proAgent;
-  }
-
-  if (instrumentationType === 'proAndSPA') {
-    agent = proAndSpaAgent;
-  }
+  const loader = getCdnFromInstrumentationType(instrumentationType);
 
   const configs = `
     ;NREUM.loader_config={accountID:"${options.accountId}",trustKey:"${options.trustKey}",agentID:"${options.agentID}",licenseKey:"${options.licenseKey}",applicationID:"${options.applicationID}"}
@@ -67,10 +78,25 @@ export default ({ setHeadComponents }, pluginOptions) => {
   `;
 
   setHeadComponents([
+    // Initialize NR namespace
     <script
-      key="gatsby-plugin-newrelic"
+      key="gatsby-plugin-newrelic-init"
       dangerouslySetInnerHTML={{
-        __html: agent + configs
+        __html: init
+      }}
+    />,
+
+    // Load aggregator
+    <script
+      key="gatsby-plugin-newrelic-loader"
+      src={loader}
+    />,
+
+    // Configure
+    <script
+      key="gatsby-plugin-newrelic-configs"
+      dangerouslySetInnerHTML={{
+        __html: configs
       }}
     />
   ]);
