@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v1.0.0...v1.0.1) (2020-10-23)
+
+
+### Bug Fixes
+
+* **Issue #16:** Update agent code to work with Gatsby script rendering ([c4702db](https://github.com/newrelic/gatsby-plugin-newrelic/commit/c4702db15f06f8e48b36f2a330712a0bf4043f9f)), closes [#16](https://github.com/newrelic/gatsby-plugin-newrelic/issues/16)
+
 # 1.0.0 (2020-10-22)
 
 
