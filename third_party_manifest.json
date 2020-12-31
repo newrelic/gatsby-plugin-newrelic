@@ -1,18 +1,18 @@
 {
-  "lastUpdated": "Thu May 28 2020 11:12:50 GMT-0400 (Eastern Daylight Time)",
+  "lastUpdated": "Thu Dec 31 2020 16:10:02 GMT+0000 (Coordinated Universal Time)",
   "projectName": "gatsby-plugin-newrelic",
   "projectUrl": "https://github.com/newrelic/gatsby-plugin-newrelic",
   "includeDev": true,
   "dependencies": {
-    "@babel/runtime@7.10.0": {
+    "@babel/runtime@7.11.2": {
       "name": "@babel/runtime",
-      "version": "7.10.0",
-      "range": "^7.0.0",
+      "version": "7.11.2",
+      "range": "^7.11.2",
       "licenses": "MIT",
       "repoUrl": "https://github.com/babel/babel",
-      "versionedRepoUrl": "https://github.com/babel/babel/tree/v7.10.0",
+      "versionedRepoUrl": "https://github.com/babel/babel/tree/v7.11.2",
       "licenseFile": "node_modules/@babel/runtime/LICENSE",
-      "licenseUrl": "https://github.com/babel/babel/blob/v7.10.0/LICENSE",
+      "licenseUrl": "https://github.com/babel/babel/blob/v7.11.2/LICENSE",
       "licenseTextSource": "file",
       "publisher": "Sebastian McKenzie",
       "email": "sebmck@gmail.com"
@@ -55,6 +55,32 @@
       "licenseFile": "node_modules/@babel/plugin-proposal-private-methods/LICENSE",
       "licenseUrl": "https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-private-methods/blob/v7.8.3/LICENSE",
       "licenseTextSource": "file"
+    },
+    "@semantic-release/changelog@5.0.1": {
+      "name": "@semantic-release/changelog",
+      "version": "5.0.1",
+      "range": "^5.0.1",
+      "licenses": "MIT",
+      "repoUrl": "https://github.com/semantic-release/changelog",
+      "versionedRepoUrl": "https://github.com/semantic-release/changelog/tree/v5.0.1",
+      "licenseFile": "node_modules/@semantic-release/changelog/LICENSE",
+      "licenseUrl": "https://github.com/semantic-release/changelog/blob/v5.0.1/LICENSE",
+      "licenseTextSource": "file",
+      "publisher": "Pierre Vanduynslager",
+      "url": "https://github.com/pvdlg"
+    },
+    "@semantic-release/git@9.0.0": {
+      "name": "@semantic-release/git",
+      "version": "9.0.0",
+      "range": "^9.0.0",
+      "licenses": "MIT",
+      "repoUrl": "https://github.com/semantic-release/git",
+      "versionedRepoUrl": "https://github.com/semantic-release/git/tree/v9.0.0",
+      "licenseFile": "node_modules/@semantic-release/git/LICENSE",
+      "licenseUrl": "https://github.com/semantic-release/git/blob/v9.0.0/LICENSE",
+      "licenseTextSource": "file",
+      "publisher": "Pierre Vanduynslager",
+      "url": "https://github.com/pvdlg"
     },
     "@testing-library/react@9.5.0": {
       "name": "@testing-library/react",
