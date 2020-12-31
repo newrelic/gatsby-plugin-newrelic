@@ -1,3 +1,11 @@
+## [1.0.6](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v1.0.5...v1.0.6) (2020-12-31)
+
+
+### Bug Fixes
+
+* upgrade @babel/runtime from 7.10.0 to 7.11.2 ([f86b63a](https://github.com/newrelic/gatsby-plugin-newrelic/commit/f86b63a8674b65ac2edef921f85b140d7fab4f88))
+* **semantic-release:** update package version to fix semantic-release's auto-versioning [skip-ci] ([f9641a0](https://github.com/newrelic/gatsby-plugin-newrelic/commit/f9641a0734571bc04c8b0c245f27e6e7d00092e5))
+
 ## [1.0.1](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v1.0.0...v1.0.1) (2020-10-23)
 
 
