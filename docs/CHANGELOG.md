@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v1.0.6...v2.0.0) (2021-04-20)
+
+
+### chore
+
+* **gatsby:** update peer deps for gatsby v3 upgrade ([6fd5ed5](https://github.com/newrelic/gatsby-plugin-newrelic/commit/6fd5ed5ed3f4ef395cbff91a75a4838c266b29d6))
+
+
+### BREAKING CHANGES
+
+* **gatsby:** Bumping to major release for all Gatsby projects
+
 ## [1.0.6](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v1.0.5...v1.0.6) (2020-12-31)
 
 
