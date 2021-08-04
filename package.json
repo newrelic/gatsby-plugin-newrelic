@@ -29,7 +29,19 @@
   },
   "license": "Apache-2",
   "dependencies": {
-    "@babel/runtime": "^7.11.2"
+    "@babel/runtime": "^7.11.2",
+    "@newrelic/winston-enricher": "^1.0.0",
+    "fast-glob": "^3.2.5",
+    "gatsby-core-utils": "^2.9.0",
+    "newrelic": "^7.5.1",
+    "node-fetch": "^2.6.1",
+    "uuid": "3.4.0",
+    "winston": "^3.3.3",
+    "winston-to-newrelic-logs": "^1.0.4",
+    "zipkin": "^0.22.0",
+    "zipkin-javascript-opentracing": "^3.0.0",
+    "zipkin-transport-http": "^0.22.0",
+    "zipkin-transport-newrelic": "^0.1.19"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",

@@ -98,7 +98,27 @@ The New Relic Gatsby Plugin provides a simple to use configuration option for in
         "build:dev": "GATSBY_NEWRELIC_ENV=dev npm run build",
       }
     ```
-
+### Update 
+```json
+{
+      resolve: "gatsby-plugin-newrelic-test",
+      options: {
+        NR_INGEST_KEY: process.env.NEW_RELIC_INSERT_KEY || '',
+        NR_LICENSE_KEY: process.env.NEW_RELIC_LICENSE_KEY || '',
+        SITE_NAME: process.env.SITE_NAME || '',
+        staging: true,
+        traces: {
+          collectTraces: false,
+        },
+        logs: {
+          collectLogs: false,
+        },
+        metrics: {
+          collectMetrics: false,
+        },
+      },
+    },
+```
 ## Getting Started
 
 Navigate to [https://one.newrelic.com](https://one.newrelic.com), select the _Entity Explorer_ and then select your browser application to monitor metrics of your site.
