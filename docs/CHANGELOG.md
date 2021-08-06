@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.0.0...v2.0.1) (2021-08-06)
+
+
+### Bug Fixes
+
+* update critical dependencies ([626bb55](https://github.com/newrelic/gatsby-plugin-newrelic/commit/626bb555dfe37995682e7c6f884abfefb109573f))
+
 # [2.0.0](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v1.0.6...v2.0.0) (2021-04-20)
 
 
