@@ -32,7 +32,7 @@ code, the source code can be found at [https://github.com/newrelic/gatsby-plugin
 
 ### @babel/runtime
 
-This product includes source derived from [@babel/runtime](https://github.com/babel/babel) ([v7.11.2](https://github.com/babel/babel/tree/v7.11.2)), distributed under the [MIT License](https://github.com/babel/babel/blob/v7.11.2/LICENSE):
+This product includes source derived from [@babel/runtime](https://github.com/babel/babel) ([v7.13.10](https://github.com/babel/babel/tree/v7.13.10)), distributed under the [MIT License](https://github.com/babel/babel/blob/v7.13.10/LICENSE):
 
 ```
 MIT License
@@ -65,7 +65,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ### @babel/cli
 
-This product includes source derived from [@babel/cli](https://github.com/babel/babel/tree/master/packages/babel-cli) ([v7.10.0](https://github.com/babel/babel/tree/master/packages/babel-cli/tree/v7.10.0)), distributed under the [MIT License](https://github.com/babel/babel/tree/master/packages/babel-cli/blob/v7.10.0/LICENSE):
+This product includes source derived from [@babel/cli](https://github.com/babel/babel) ([v7.14.8](https://github.com/babel/babel/tree/v7.14.8)), distributed under the [MIT License](https://github.com/babel/babel/blob/v7.14.8/LICENSE):
 
 ```
 MIT License
@@ -95,7 +95,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ### @babel/core
 
-This product includes source derived from [@babel/core](https://github.com/babel/babel/tree/master/packages/babel-core) ([v7.10.0](https://github.com/babel/babel/tree/master/packages/babel-core/tree/v7.10.0)), distributed under the [MIT License](https://github.com/babel/babel/tree/master/packages/babel-core/blob/v7.10.0/LICENSE):
+This product includes source derived from [@babel/core](https://github.com/babel/babel) ([v7.13.15](https://github.com/babel/babel/tree/v7.13.15)), distributed under the [MIT License](https://github.com/babel/babel/blob/v7.13.15/LICENSE):
 
 ```
 MIT License
@@ -125,7 +125,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ### @babel/plugin-proposal-private-methods
 
-This product includes source derived from [@babel/plugin-proposal-private-methods](https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-private-methods) ([v7.8.3](https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-private-methods/tree/v7.8.3)), distributed under the [MIT License](https://github.com/babel/babel/tree/master/packages/babel-plugin-proposal-private-methods/blob/v7.8.3/LICENSE):
+This product includes source derived from [@babel/plugin-proposal-private-methods](https://github.com/babel/babel) ([v7.13.0](https://github.com/babel/babel/tree/v7.13.0)), distributed under the [MIT License](https://github.com/babel/babel/blob/v7.13.0/LICENSE):
 
 ```
 MIT License

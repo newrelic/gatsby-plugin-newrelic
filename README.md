@@ -9,11 +9,11 @@ The New Relic Gatsby Plugin provides a simple to use configuration option for in
 ## Installation
 
 1. If you don't already have a New Relic account, [sign-up for our free forever tier - no credit-card required!](https://newrelic.com/signup)
-1. Go to [https://rpm.newrelic.com](https://rpm.newrelic.com)
-1. Select the "Browser" product from the navigation
-1. Click on "Add more" to add your website
+1. Go to [https://one.newrelic.com](https://one.newrelic.com)
+1. Click on "Add more data" to add your website
+1. In the "Browser metrics" section, select "New Relic Browser"
 1. Select "Copy/Paste Javascript code" and copy the code
-1. Under "Choose your instrumentation" select Lite, Pro, or Pro + SPA
+1. Follow the steps to configure your instrumentation
 1. Enter your app name
 1. Click "Enable"
 1. Paste the JS snippet provided into a text editor
@@ -87,7 +87,6 @@ The New Relic Gatsby Plugin provides a simple to use configuration option for in
     }
     ```
 
-    Note - `instrumentationType` can be `lite`, `pro`, `proAndSPA`, corresponding with levels of our browser agent.
 
 1. Set the `GATSBY_NEWRELIC_ENV` to point at the appropriate config. For local dev you would add `GATSBY_NEWRELIC_ENV=dev` to the front of your "develop" script in your project's `package.json`. For "production" you would add `GATSBY_NEWRELIC_ENV=production` to the front of the Gatsby "build" command.
     Ex. `package.json`:
