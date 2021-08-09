@@ -45,7 +45,6 @@ const create = () => {
     // timeout = 60 hours, must be longer than site's build time
     timeout: 60 * 60 * 60 * 1000000,
   });
-  // console.log(recorder)
   const tracer = new _zipkinJavascriptOpentracing.default({
     localServiceName: THEME_OPTIONS.SITE_NAME,
     serviceName: THEME_OPTIONS.SITE_NAME,
