@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-newrelic",
-  "version": "2.0.2-next.1",
+  "version": "2.0.2-next.0",
   "description": "Gatsby plugin for implementing the New Relic Browser agent, Traces, Logs and Metrics",
   "main": "index.js",
   "scripts": {
@@ -59,6 +59,6 @@
   "private": false,
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
-    "tag": "latest"
+    "tag": "next"
   }
 }
