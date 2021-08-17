@@ -98,22 +98,24 @@ The New Relic Gatsby Plugin provides a simple to use configuration option for in
       }
     ```
 ### Update 
-```json
+```js
 {
       resolve: "gatsby-plugin-newrelic-test",
       options: {
-        NR_INGEST_KEY: process.env.NEW_RELIC_INSERT_KEY || '',
-        NR_LICENSE_KEY: process.env.NEW_RELIC_LICENSE_KEY || '',
-        SITE_NAME: process.env.SITE_NAME || '',
-        staging: true,
+        NR_INGEST_KEY: process.env.NEW_RELIC_INSERT_KEY,
+        NR_LICENSE_KEY: process.env.NEW_RELIC_LICENSE_KEY,
+        SITE_NAME: process.env.SITE_NAME,
         traces: {
           collectTraces: false,
+          tags: {},
         },
         logs: {
           collectLogs: false,
+          tags: {},
         },
         metrics: {
           collectMetrics: false,
+          tags: {},
         },
       },
     },
