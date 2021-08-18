@@ -137,7 +137,6 @@ if (NR_LICENSE_KEY && collectLogs) {
   };
 
   console.warn = function (msg) {
-    //
     winstonLogger.log({
       level: "warn",
       message: msg,
