@@ -167,7 +167,7 @@ class BenchMeta {
     this.localTime = new Date().toISOString();
     this.timestamps = {
       // TODO: we should also have access to node's timing data and see how long it took before bootstrapping this script
-      bootstrapTime,
+      bootstrapTime: performance.now(),
       // Start of this file
       instantiationTime: performance.now(),
       // Instantiation time of this class
