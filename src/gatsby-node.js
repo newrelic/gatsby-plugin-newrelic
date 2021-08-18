@@ -97,8 +97,8 @@ if (NR_LICENSE_KEY && collectLogs) {
         //   }
         // }
 
-        let deletedPages = deletedPagesRegex.exec(copyChunk);
-        let changedPages = changedPagesRegex.exec(copyChunk);
+        const deletedPages = deletedPagesRegex.exec(copyChunk);
+        const changedPages = changedPagesRegex.exec(copyChunk);
 
         if (deletedPages) {
           DELETED_PAGES = deletedPages[1];
