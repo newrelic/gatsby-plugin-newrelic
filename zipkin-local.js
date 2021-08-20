@@ -12,6 +12,7 @@ const _nodeFetch = _interopRequireDefault(require("node-fetch"));
 const {now} = require('./utils/time');
 
 const ciAttributes = getCiData();
+const TIMEOUT_LENGTH = 60 * 60 * 60 * 1000000;
 
 let recorder, 
     logger;
@@ -42,7 +43,7 @@ const create = () => {
   recorder = new _zipkin.BatchRecorder({
     logger,
     // timeout = 60 hours, must be longer than site's build time
-    timeout: 60 * 60 * 60 * 1000000,
+    timeout: TIMEOUT_LENGTH,
   });
   const tracer = new _zipkinJavascriptOpentracing.default({
     localServiceName: SITE_NAME,
