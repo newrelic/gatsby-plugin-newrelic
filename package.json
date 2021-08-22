@@ -35,11 +35,11 @@
     "node-fetch": "^2.6.1",
     "uuid": "3.4.0",
     "winston": "^3.3.3",
-    "winston-to-newrelic-logs": "^1.0.5",
+    "winston-to-newrelic-logs": "^1.0.8",
     "zipkin": "^0.22.0",
     "zipkin-javascript-opentracing": "^3.0.0",
     "zipkin-transport-http": "^0.22.0",
-    "zipkin-transport-newrelic": "^0.1.23"
+    "zipkin-transport-newrelic": "^0.1.26"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.8",

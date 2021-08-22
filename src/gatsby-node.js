@@ -55,6 +55,8 @@ if (NR_LICENSE_KEY && collectLogs) {
   !LOGS_STARTED && console.log(`[@] gatsby-plugin-newrelic: Streaming logs`);
   LOGS_STARTED = true;
   const originalStdoutWrite = process.stdout.write.bind(process.stdout);
+  const originalStderrWrite = process.stderr.write.bind(process.stderr); // Remove loading braille characters from log strings
+
   // Remove loading braille characters from log strings
   const brailleRegex = /⠋|⠙|⠹|⠸|⠼|⠴|⠦|⠧|⠇|⠏|\n/g;
   // Remove ANSI escape codes from log string
@@ -63,24 +65,7 @@ if (NR_LICENSE_KEY && collectLogs) {
   const deletedPagesRegex = /Deleted (.*?) pages/g;
   const changedPagesRegex = /Found (.*?) changed pages/g;
   const clearingCache = `we're deleting your site's cache`;
-  // Only log repeated messages once
-  // const ALREADY_LOGGED = {
-  //   "source and transform nodes": false,
-  //   "building schema": false,
-  //   createPages: false,
-  //   createPagesStatefully: false,
-  //   "extract queries from components": false,
-  //   "write out redirect data": false,
-  //   onPostBootstrap: false,
-  //   "Building production JavaScript and CSS bundles": false,
-  //   "JavaScript and CSS webpack compilation Building HTML renderer": false,
-  //   "JavaScript and CSS webpack compilation": false,
-  //   "Building HTML renderer": false,
-  //   "warn GATSBY_NEWRELIC_ENV env variable is not set": false,
-  //   onPostBuild: false,
-  //   "initialize cache": false,
-  // };
-
+  
   process.stdout.write = (chunk, encoding, callback) => {
     if (isString(chunk)) {
       try {
@@ -88,14 +73,6 @@ if (NR_LICENSE_KEY && collectLogs) {
           .replace(regex, "")
           .replace(brailleRegex, "")
           .trimStart();
-
-        // if (Object.keys(ALREADY_LOGGED).includes(copyChunk)) {
-        //   if (ALREADY_LOGGED[copyChunk]) {
-        //     return originalStdoutWrite(chunk, encoding, callback);
-        //   } else {
-        //     ALREADY_LOGGED[copyChunk] = true;
-        //   }
-        // }
 
         const deletedPages = deletedPagesRegex.exec(copyChunk);
         const changedPages = changedPagesRegex.exec(copyChunk);
@@ -129,18 +106,25 @@ if (NR_LICENSE_KEY && collectLogs) {
     return originalStdoutWrite(chunk, encoding, callback);
   };
 
-  console.error = function (msg) {
-    winstonLogger.log({
-      level: "error",
-      message: msg,
-    });
-  };
+  process.stderr.write = (chunk, encoding, callback) => {
+    if (isString(chunk)) {
+      try {
+        const copyChunk = chunk.replace(regex, "").replace(brailleRegex, "").trimStart(); // if (Object.keys(ALREADY_LOGGED).includes(copyChunk)) {
 
-  console.warn = function (msg) {
-    winstonLogger.log({
-      level: "warn",
-      message: msg,
-    });
+        if (copyChunk !== "") {
+          winstonLogger.log({
+            level: "error",
+            message: copyChunk
+          });
+        }
+      } catch (err) {
+        winstonLogger.log({
+          level: "error",
+          message: err.message
+        });
+      }
+    }
+    return originalStderrWrite(chunk, encoding, callback);
   };
 }
 

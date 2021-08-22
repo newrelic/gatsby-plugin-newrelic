@@ -28,7 +28,7 @@ const create = () => {
       staging ? `staging-` : ``
     }trace-api.newrelic.com/trace/v1`,
     jsonEncoder: _zipkin.jsonEncoder.JSON_V2,
-    httpInterval: 2000,
+    httpInterval: 500,
     headers: {
       "Api-Key": NR_INGEST_KEY,
       "Data-Format": "zipkin",
@@ -82,7 +82,6 @@ const formatTrace = (trace) => {
     trace.name += `: ${trace.tags.plugin}`;
   }
   trace.tags = {...trace.tags, ...tags};
-  trace.tags.thing = 'zipkin-local';
   trace.tags.buildId = buildId;
   return JSON.stringify(trace);
 }
@@ -103,7 +102,7 @@ const sendTraceQueue = async (queue) => {
   if (response.status >= 300) {
     const err =
       `[@] gatsby-plugin-newrelic: Unexpected response while sending trace data, status:` +
-      `${response.status}, body: ${postBody}`;
+      `${response.status}`;
     if (logger.errorListenerSet) {
       logger.emit(`error`, new Error(err));
     }
