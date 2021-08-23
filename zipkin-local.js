@@ -22,7 +22,7 @@ let recorder,
  */
 
 const create = () => {
-  const { staging, NR_INGEST_KEY, traces: tags = {}, SITE_NAME } = PLUGIN_OPTIONS;
+  const { staging, NR_INGEST_KEY, traces: {tags = {}} = {}, SITE_NAME } = PLUGIN_OPTIONS;
   logger = new _zipkinTransportHttp.HttpLogger({
     endpoint: `https://${
       staging ? `staging-` : ``
@@ -58,17 +58,12 @@ const create = () => {
 };
 
 const formatTrace = (trace) => {
-  const { SITE_NAME, traces: {tags} = {}, buildId } = PLUGIN_OPTIONS;
+  const { SITE_NAME, traces: {tags = {}} = {}, buildId } = PLUGIN_OPTIONS;
   trace = JSON.parse(trace);
   trace.localEndpoint = {};
   trace.localEndpoint.serviceName = SITE_NAME;
   if(!trace.tags) {
     trace.tags = {};
-  }
-  if (trace.annotations) {
-    for (let anno of trace.annotations) {
-      trace.tags[anno.key] = anno.value;
-    }
   }
   if (trace.binaryAnnotations) {
     for (let anno of trace.binaryAnnotations) {
