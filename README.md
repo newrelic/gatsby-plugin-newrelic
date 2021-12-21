@@ -8,7 +8,7 @@ The New Relic Gatsby Plugin provides a simple to use configuration option for in
 
 ## Installation
 
-1. If you don't already have a New Relic account, [sign-up for our free forever tier - no credit-card required!](https://newrelic.com/signup)
+1. If you don't already have a New Relic account, [sign-up for our free forever tier - no credit-card required!](https://trynewrelic.com/gatsby)
 1. Go to [https://one.newrelic.com](https://one.newrelic.com)
 1. Click on "Add more data" to add your website
 1. In the "Browser metrics" section, select "New Relic Browser"
