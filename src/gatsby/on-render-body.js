@@ -66,12 +66,14 @@ export default ({ setHeadComponents }, pluginOptions) => {
     ;NREUM.info={beacon:"${options.beacon}",errorBeacon:"${options.errorBeacon}",licenseKey:"${options.licenseKey}",applicationID:"${options.applicationID}",sa:1}
   `;
 
-  setHeadComponents([
-    <script
-      key="gatsby-plugin-newrelic"
-      dangerouslySetInnerHTML={{
-        __html: agent + configs
-      }}
-    />
-  ]);
+  if (agent && configs) { 
+    setHeadComponents([
+      <script
+        key="gatsby-plugin-newrelic"
+        dangerouslySetInnerHTML={{
+          __html: agent + configs
+        }}
+      />
+    ]);
+  }
 };

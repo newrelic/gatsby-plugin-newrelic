@@ -1,3 +1,44 @@
+## [2.0.2](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.0.1...v2.0.2) (2021-08-06)
+
+
+### Bug Fixes
+
+* update default release tag to be latest ([a6fef1e](https://github.com/newrelic/gatsby-plugin-newrelic/commit/a6fef1ec5b981d6b82ef3e44bdf756c303ce9ce0))
+
+## [2.0.1](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.0.0...v2.0.1) (2021-08-06)
+
+
+### Bug Fixes
+
+* update critical dependencies ([626bb55](https://github.com/newrelic/gatsby-plugin-newrelic/commit/626bb555dfe37995682e7c6f884abfefb109573f))
+
+# [2.0.0](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v1.0.6...v2.0.0) (2021-04-20)
+
+
+### chore
+
+* **gatsby:** update peer deps for gatsby v3 upgrade ([6fd5ed5](https://github.com/newrelic/gatsby-plugin-newrelic/commit/6fd5ed5ed3f4ef395cbff91a75a4838c266b29d6))
+
+
+### BREAKING CHANGES
+
+* **gatsby:** Bumping to major release for all Gatsby projects
+
+## [1.0.6](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v1.0.5...v1.0.6) (2020-12-31)
+
+
+### Bug Fixes
+
+* upgrade @babel/runtime from 7.10.0 to 7.11.2 ([f86b63a](https://github.com/newrelic/gatsby-plugin-newrelic/commit/f86b63a8674b65ac2edef921f85b140d7fab4f88))
+* **semantic-release:** update package version to fix semantic-release's auto-versioning [skip-ci] ([f9641a0](https://github.com/newrelic/gatsby-plugin-newrelic/commit/f9641a0734571bc04c8b0c245f27e6e7d00092e5))
+
+## [1.0.1](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v1.0.0...v1.0.1) (2020-10-23)
+
+
+### Bug Fixes
+
+* **Issue #16:** Update agent code to work with Gatsby script rendering ([c4702db](https://github.com/newrelic/gatsby-plugin-newrelic/commit/c4702db15f06f8e48b36f2a330712a0bf4043f9f)), closes [#16](https://github.com/newrelic/gatsby-plugin-newrelic/issues/16)
+
 # 1.0.0 (2020-10-22)
 
 
