@@ -42,7 +42,7 @@
     "cross-env": "^5.2.1"
   },
   "engines": {
-    "node": ">=10.13.0"
+    "node": ">=16.3.1"
   },
   "private": false,
   "publishConfig": {
