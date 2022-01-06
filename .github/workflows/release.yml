@@ -49,7 +49,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 10.x
+          node-version: 16.x
 
       - name: Cache node_modules
         id: cache-node-modules
@@ -90,7 +90,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 10.x
+          node-version: 16.x
 
       - name: Download Cached Deps
         id: cache-node-modules
@@ -211,7 +211,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 10.x
+          node-version: 16.x
 
       - name: Download Cached Deps
         id: cache-node-modules
