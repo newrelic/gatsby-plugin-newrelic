@@ -1,3 +1,16 @@
+# [2.1.0](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.0.2...v2.1.0) (2022-01-06)
+
+
+### Bug Fixes
+
+* bumped the node version ([bc7f7ee](https://github.com/newrelic/gatsby-plugin-newrelic/commit/bc7f7ee43f68a07a6381fded83195786783399a6))
+* update ci node version ([7fec128](https://github.com/newrelic/gatsby-plugin-newrelic/commit/7fec128c63852a78f8be23a3bb06cb65c7322c65))
+
+
+### Features
+
+* adds support for gatsby 4 ([a7b5ba3](https://github.com/newrelic/gatsby-plugin-newrelic/commit/a7b5ba3c21aa772e7c300af167f894cf5019dd45))
+
 ## [2.0.2](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.0.1...v2.0.2) (2021-08-06)
 
 
