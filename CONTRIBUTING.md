@@ -27,8 +27,9 @@ Before submitting an Issue, please search for similar ones in the
  1. Make your changes on a local branch from main.
  2. After pulling down the code, run `git fetch && git pull` to ensure you have the latest code for main.
  3. Commit your changes and submit a PR to the `next` branch.
- 4. This will kick off the workflow to publish a next version to NPM.
- 5. Go to [NPM](https://www.npmjs.com/package/gatsby-plugin-newrelic) to view the next branch.
+ 4. Ensure that you [bump the version of the package](https://cloudfour.com/thinks/how-to-publish-an-updated-version-of-an-npm-package/#the-standard-release-process) by using semantic versioning using the `NPM version` command.
+ 5. This will kick off the workflow to publish a next version to NPM.
+ 6. Go to [NPM](https://www.npmjs.com/package/gatsby-plugin-newrelic) to view the next branch.
 
 ## Contributor License Agreement
 
