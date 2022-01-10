@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.1.0...v2.1.1) (2022-01-10)
+
+
+### Bug Fixes
+
+* updated contributing guide ([af6aa1c](https://github.com/newrelic/gatsby-plugin-newrelic/commit/af6aa1c48603a36641099b7ab6c2612e31fa11bc))
+
 # [2.1.0](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.0.2...v2.1.0) (2022-01-06)
 
 
