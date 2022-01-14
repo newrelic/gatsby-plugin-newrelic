@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.1.1...v2.2.0) (2022-01-14)
+
+
+### Features
+
+* Update package.json ([055d741](https://github.com/newrelic/gatsby-plugin-newrelic/commit/055d741013585b1cec6d6f5441104cfca8170ff5))
+
 ## [2.1.1](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.1.0...v2.1.1) (2022-01-10)
 
 
