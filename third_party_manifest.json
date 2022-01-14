@@ -1,22 +1,22 @@
 {
-  "lastUpdated": "Fri Aug 06 2021 21:07:45 GMT+0000 (Coordinated Universal Time)",
+  "lastUpdated": "Fri Jan 14 2022 22:34:47 GMT+0000 (Coordinated Universal Time)",
   "projectName": "gatsby-plugin-newrelic",
   "projectUrl": "https://github.com/newrelic/gatsby-plugin-newrelic",
-  "includeDev": true,
   "includeOptDeps": false,
+  "includeDev": true,
   "dependencies": {
-    "@babel/runtime@7.13.10": {
+    "@babel/runtime@7.16.7": {
       "name": "@babel/runtime",
-      "version": "7.13.10",
+      "version": "7.16.7",
       "range": "^7.12.5",
       "licenses": "MIT",
       "repoUrl": "https://github.com/babel/babel",
-      "versionedRepoUrl": "https://github.com/babel/babel/tree/v7.13.10",
+      "versionedRepoUrl": "https://github.com/babel/babel/tree/v7.16.7",
       "licenseFile": "node_modules/@babel/runtime/LICENSE",
-      "licenseUrl": "https://github.com/babel/babel/blob/v7.13.10/LICENSE",
+      "licenseUrl": "https://github.com/babel/babel/blob/v7.16.7/LICENSE",
       "licenseTextSource": "file",
-      "publisher": "Sebastian McKenzie",
-      "email": "sebmck@gmail.com"
+      "publisher": "The Babel Team",
+      "url": "https://babel.dev/team"
     }
   },
   "devDependencies": {
@@ -33,29 +33,31 @@
       "publisher": "The Babel Team",
       "url": "https://babel.dev/team"
     },
-    "@babel/core@7.13.15": {
+    "@babel/core@7.16.7": {
       "name": "@babel/core",
-      "version": "7.13.15",
+      "version": "7.16.7",
       "range": "^7.0.0",
       "licenses": "MIT",
       "repoUrl": "https://github.com/babel/babel",
-      "versionedRepoUrl": "https://github.com/babel/babel/tree/v7.13.15",
+      "versionedRepoUrl": "https://github.com/babel/babel/tree/v7.16.7",
       "licenseFile": "node_modules/@babel/core/LICENSE",
-      "licenseUrl": "https://github.com/babel/babel/blob/v7.13.15/LICENSE",
+      "licenseUrl": "https://github.com/babel/babel/blob/v7.16.7/LICENSE",
       "licenseTextSource": "file",
-      "publisher": "Sebastian McKenzie",
-      "email": "sebmck@gmail.com"
+      "publisher": "The Babel Team",
+      "url": "https://babel.dev/team"
     },
-    "@babel/plugin-proposal-private-methods@7.13.0": {
+    "@babel/plugin-proposal-private-methods@7.16.7": {
       "name": "@babel/plugin-proposal-private-methods",
-      "version": "7.13.0",
+      "version": "7.16.7",
       "range": "^7.8.3",
       "licenses": "MIT",
       "repoUrl": "https://github.com/babel/babel",
-      "versionedRepoUrl": "https://github.com/babel/babel/tree/v7.13.0",
+      "versionedRepoUrl": "https://github.com/babel/babel/tree/v7.16.7",
       "licenseFile": "node_modules/@babel/plugin-proposal-private-methods/LICENSE",
-      "licenseUrl": "https://github.com/babel/babel/blob/v7.13.0/LICENSE",
-      "licenseTextSource": "file"
+      "licenseUrl": "https://github.com/babel/babel/blob/v7.16.7/LICENSE",
+      "licenseTextSource": "file",
+      "publisher": "The Babel Team",
+      "url": "https://babel.dev/team"
     },
     "@semantic-release/changelog@5.0.1": {
       "name": "@semantic-release/changelog",

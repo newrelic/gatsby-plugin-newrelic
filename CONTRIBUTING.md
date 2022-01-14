@@ -18,6 +18,19 @@ Before submitting an Issue, please search for similar ones in the
 2. Increase the version numbers in any examples files and the README.md to the new version that this Pull Request would represent. The versioning scheme we use is [SemVer](http://semver.org/).
 3. You may merge the Pull Request in once you have the sign-off of two other developers, or if you do not have permission to do that, you may request the second reviewer to merge it for you.
 
+## Publishing next versions to NPM
+
+ A [Github workflow](https://github.com/newrelic/gatsby-plugin-newrelic/blob/main/.github/workflows/release.yml) which uses NPX [semantic-release](https://semantic-release.gitbook.io/semantic-release/usage/configuration#branches) exists to assist in publishing next versions of this plugin to NPM.
+
+ > If you wish to publish a next version to NPM follow these steps.
+
+ 1. Make your changes on a local branch from main.
+ 2. After pulling down the code, run `git fetch && git pull` to ensure you have the latest code for main.
+ 3. Commit your changes and submit a PR to the `next` branch.
+ 4. Ensure that you [bump the version of the package](https://cloudfour.com/thinks/how-to-publish-an-updated-version-of-an-npm-package/#the-standard-release-process) by using semantic versioning using the `NPM version` command.
+ 5. This will kick off the workflow to publish a next version to NPM.
+ 6. Go to [NPM](https://www.npmjs.com/package/gatsby-plugin-newrelic) to view the next branch.
+
 ## Contributor License Agreement
 
 Keep in mind that when you submit your Pull Request, you'll need to sign the CLA via the click-through using CLA-Assistant. If you'd like to execute our corporate CLA, or if you have any questions, please drop us an email at opensource@newrelic.com.

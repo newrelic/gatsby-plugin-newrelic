@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-newrelic",
-  "version": "2.0.2",
+  "version": "2.2.0",
   "description": "Gatsby plugin for implementing the New Relic Browser agent",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,7 @@
   },
   "homepage": "https://opensource.newrelic.com/projects/newrelic/gatsby-plugin-newrelic",
   "peerDependencies": {
-    "gatsby": "^3.0.0",
+    "gatsby": "3.x || 4.x",
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
   },
@@ -42,11 +42,11 @@
     "cross-env": "^5.2.1"
   },
   "engines": {
-    "node": ">=10.13.0"
+    "node": ">=16.3.1"
   },
   "private": false,
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
-    "tag": "latest"
+    "tag": "next"
   }
 }

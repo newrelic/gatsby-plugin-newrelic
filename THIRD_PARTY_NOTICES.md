@@ -32,7 +32,7 @@ code, the source code can be found at [https://github.com/newrelic/gatsby-plugin
 
 ### @babel/runtime
 
-This product includes source derived from [@babel/runtime](https://github.com/babel/babel) ([v7.13.10](https://github.com/babel/babel/tree/v7.13.10)), distributed under the [MIT License](https://github.com/babel/babel/blob/v7.13.10/LICENSE):
+This product includes source derived from [@babel/runtime](https://github.com/babel/babel) ([v7.16.7](https://github.com/babel/babel/tree/v7.16.7)), distributed under the [MIT License](https://github.com/babel/babel/blob/v7.16.7/LICENSE):
 
 ```
 MIT License
@@ -95,7 +95,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ### @babel/core
 
-This product includes source derived from [@babel/core](https://github.com/babel/babel) ([v7.13.15](https://github.com/babel/babel/tree/v7.13.15)), distributed under the [MIT License](https://github.com/babel/babel/blob/v7.13.15/LICENSE):
+This product includes source derived from [@babel/core](https://github.com/babel/babel) ([v7.16.7](https://github.com/babel/babel/tree/v7.16.7)), distributed under the [MIT License](https://github.com/babel/babel/blob/v7.16.7/LICENSE):
 
 ```
 MIT License
@@ -125,7 +125,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ### @babel/plugin-proposal-private-methods
 
-This product includes source derived from [@babel/plugin-proposal-private-methods](https://github.com/babel/babel) ([v7.13.0](https://github.com/babel/babel/tree/v7.13.0)), distributed under the [MIT License](https://github.com/babel/babel/blob/v7.13.0/LICENSE):
+This product includes source derived from [@babel/plugin-proposal-private-methods](https://github.com/babel/babel) ([v7.16.7](https://github.com/babel/babel/tree/v7.16.7)), distributed under the [MIT License](https://github.com/babel/babel/blob/v7.16.7/LICENSE):
 
 ```
 MIT License
