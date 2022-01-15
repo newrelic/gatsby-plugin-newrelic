@@ -27,41 +27,39 @@ The New Relic Gatsby Plugin provides a simple to use configuration option for in
 
     and turn it into a `gatsby-config`, adding it to `gatsby-config.js` as a plugin
 
+     ```js
+    {
+      resolve: 'gatsby-plugin-newrelic',
+      options: {
+        config: {
+            instrumentationType: 'proAndSPA',
+            accountId: '<some integer>',
+            trustKey: '<some integer>',
+            agentID: '<some integer>',
+            licenseKey: '<the license key>',
+            applicationID: '<some integer>',
+            beacon: 'bam.nr-data.net',
+            errorBeacon: 'bam.nr-data.net'
+        }
+      }
+    }
+    ```
+
+    If you have a need for multiple environments, you can configure this like:
+
     ```js
     {
       resolve: 'gatsby-plugin-newrelic',
       options: {
-        configs: {
-          dev: {
+        config: {
             instrumentationType: 'proAndSPA',
             accountId: '<some integer>',
             trustKey: '<some integer>',
             agentID: '<some integer>',
             licenseKey: '<the license key>',
-            applicationID: '<some integer>',
+            applicationID: process.env.GATSBY_NEWRELIC_ENV === "production" ? '<some integer>' : '<some other integer>',
             beacon: 'bam.nr-data.net',
             errorBeacon: 'bam.nr-data.net'
-          },
-          staging: {
-            instrumentationType: 'proAndSPA',
-            accountId: '<some integer>',
-            trustKey: '<some integer>',
-            agentID: '<some integer>',
-            licenseKey: '<the license key>',
-            applicationID: '<some integer>',
-            beacon: 'bam.nr-data.net',
-            errorBeacon: 'bam.nr-data.net'
-          },
-          production: {
-            instrumentationType: 'proAndSPA',
-            accountId: '<some integer>',
-            trustKey: '<some integer>',
-            agentID: '<some integer>',
-            licenseKey: '<the license key>',
-            applicationID: '<some integer>',
-            beacon: 'bam.nr-data.net',
-            errorBeacon: 'bam.nr-data.net'
-          }
         }
       }
     }
@@ -69,34 +67,7 @@ The New Relic Gatsby Plugin provides a simple to use configuration option for in
 
     If you have no need for multiple environments, you can simply pass a single object like:
 
-    ```js
-    {
-      resolve: 'gatsby-plugin-newrelic',
-      options: {
-        configs: {
-            instrumentationType: 'proAndSPA',
-            accountId: '<some integer>',
-            trustKey: '<some integer>',
-            agentID: '<some integer>',
-            licenseKey: '<the license key>',
-            applicationID: '<some integer>',
-            beacon: 'bam.nr-data.net',
-            errorBeacon: 'bam.nr-data.net'
-        }
-      }
-    }
-    ```
-
-
-1. Set the `GATSBY_NEWRELIC_ENV` to point at the appropriate config. For local dev you would add `GATSBY_NEWRELIC_ENV=dev` to the front of your "develop" script in your project's `package.json`. For "production" you would add `GATSBY_NEWRELIC_ENV=production` to the front of the Gatsby "build" command.
-    Ex. `package.json`:
-
-    ```js
-      "scripts": {
-        "build": "GATSBY_NEWRELIC_ENV=production gatsby build",
-        "build:dev": "GATSBY_NEWRELIC_ENV=dev npm run build",
-      }
-    ```
+   
 
 ## Getting Started
 
