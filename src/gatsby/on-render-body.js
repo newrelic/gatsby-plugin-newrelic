@@ -19,16 +19,9 @@ export default ({ setHeadComponents }, pluginOptions) => {
 
   const env = process.env.GATSBY_NEWRELIC_ENV;
 
-  if (!env) {
-    // TO DO - Error/Warn about envVariable not being set
-    console.warn('GATSBY_NEWRELIC_ENV env variable is not set');
-    return;
-  }
-
-  const userEnvConfig = userConfigs[env] ? userConfigs[env] : userConfigs;
+  const userEnvConfig = env && userConfigs[env] ? userConfigs[env] : userConfigs;
   if (!userEnvConfig) {
-    // TO DO - Error/Warn about missing config option for a given env
-    console.warn('gatsby-plugin-newrelic is missing the configuration for the ' + env + ' environment');
+    console.warn(`gatsby-plugin-newrelic is missing the configuration${env && `for the ${env} environment`}`);
     return;
   }
 
@@ -66,7 +59,7 @@ export default ({ setHeadComponents }, pluginOptions) => {
     ;NREUM.info={beacon:"${options.beacon}",errorBeacon:"${options.errorBeacon}",licenseKey:"${options.licenseKey}",applicationID:"${options.applicationID}",sa:1}
   `;
 
-  if (agent && configs) { 
+  if (agent && configs) {
     setHeadComponents([
       <script
         key="gatsby-plugin-newrelic"

@@ -74,7 +74,7 @@ The New Relic Gatsby Plugin provides a simple to use configuration option for in
       resolve: 'gatsby-plugin-newrelic',
       options: {
         configs: {
-          instrumentationType: 'proAndSPA',
+            instrumentationType: 'proAndSPA',
             accountId: '<some integer>',
             trustKey: '<some integer>',
             agentID: '<some integer>',
