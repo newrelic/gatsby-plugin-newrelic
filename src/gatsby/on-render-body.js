@@ -3,7 +3,8 @@ import { liteAgent, proAgent, proAndSpaAgent } from '../browser-agents/latest';
 
 export default ({ setHeadComponents }, pluginOptions) => {
   const {
-    config: userConfigs
+    configs: userConfigs,
+    config: userConfig
   } = pluginOptions;
 
   const requiredConfig = {
@@ -19,7 +20,7 @@ export default ({ setHeadComponents }, pluginOptions) => {
 
   const env = process.env.GATSBY_NEWRELIC_ENV;
 
-  const userEnvConfig = env && userConfigs[env] ? userConfigs[env] : userConfigs;
+  const userEnvConfig = env ? userConfigs[env] : userConfig;
   if (!userEnvConfig) {
     console.warn(`gatsby-plugin-newrelic is missing the configuration${env ? ` for the ${env} environment` : ''}`);
     return;
