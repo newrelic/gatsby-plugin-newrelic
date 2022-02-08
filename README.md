@@ -63,11 +63,7 @@ The New Relic Gatsby Plugin provides a simple to use configuration option for in
         }
       }
     }
-    ```
-
-    If you have no need for multiple environments, you can simply pass a single object like:
-
-   
+    ```  
 
 ## Getting Started
 

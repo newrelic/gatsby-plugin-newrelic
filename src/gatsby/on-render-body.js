@@ -3,7 +3,7 @@ import { liteAgent, proAgent, proAndSpaAgent } from '../browser-agents/latest';
 
 export default ({ setHeadComponents }, pluginOptions) => {
   const {
-    config: userConfig
+    config: userConfigs
   } = pluginOptions;
 
   const requiredConfig = {
@@ -17,9 +17,16 @@ export default ({ setHeadComponents }, pluginOptions) => {
     instrumentationType: 'lite' // Options are 'lite', 'pro', 'proAndSPA'
   };
 
-  if (!userConfig) {
-    console.warn("gatsby-plugin-newrelic is missing the configuration");
+  const env = process.env.GATSBY_NEWRELIC_ENV;
+
+  const userEnvConfig = env && userConfigs[env] ? userConfigs[env] : userConfigs;
+  if (!userEnvConfig) {
+    console.warn(`gatsby-plugin-newrelic is missing the configuration${env ? ` for the ${env} environment` : ''}`);
     return;
+  }
+
+  if (env) {
+    console.warn('gatsby-plugin-newrelic has deprecated using GATSBY_NEWRELIC_ENV for multiple environments');
   }
 
   const allowedInstrumentationTypes = ['lite', 'pro', 'proAndSPA'];
@@ -30,7 +37,7 @@ export default ({ setHeadComponents }, pluginOptions) => {
     // TO DO - Error/Warn about wrong instrumentation type
   }
 
-  const options = { ...requiredConfig, ...userConfig };
+  const options = { ...requiredConfig, ...userEnvConfig };
   const instrumentationType = options.instrumentationType;
 
   const emptyOptions = Object.entries(options).filter(([, v]) => v === '');
