@@ -3,10 +3,11 @@ import { liteAgent, proAgent, proAndSpaAgent } from '../browser-agents/latest';
 
 export default ({ setHeadComponents }, pluginOptions) => {
   const {
-    configs: userConfigs
+    configs: userConfigs,
+    config: userConfig
   } = pluginOptions;
 
-  const requiredConfigs = {
+  const requiredConfig = {
     accountId: '',
     trustKey: '',
     agentID: '',
@@ -19,17 +20,14 @@ export default ({ setHeadComponents }, pluginOptions) => {
 
   const env = process.env.GATSBY_NEWRELIC_ENV;
 
-  if (!env) {
-    // TO DO - Error/Warn about envVariable not being set
-    console.warn('GATSBY_NEWRELIC_ENV env variable is not set');
+  const userEnvConfig = env ? userConfigs[env] : userConfig;
+  if (!userEnvConfig) {
+    console.warn(`gatsby-plugin-newrelic is missing the configuration${env ? ` for the ${env} environment` : ''}`);
     return;
   }
 
-  const userEnvConfig = userConfigs[env] ? userConfigs[env] : userConfigs;
-  if (!userEnvConfig) {
-    // TO DO - Error/Warn about missing config option for a given env
-    console.warn('gatsby-plugin-newrelic is missing the configuration for the ' + env + ' environment');
-    return;
+  if (env) {
+    console.warn('gatsby-plugin-newrelic has deprecated using GATSBY_NEWRELIC_ENV for multiple environments');
   }
 
   const allowedInstrumentationTypes = ['lite', 'pro', 'proAndSPA'];
@@ -40,7 +38,7 @@ export default ({ setHeadComponents }, pluginOptions) => {
     // TO DO - Error/Warn about wrong instrumentation type
   }
 
-  const options = { ...requiredConfigs, ...userEnvConfig };
+  const options = { ...requiredConfig, ...userEnvConfig };
   const instrumentationType = options.instrumentationType;
 
   const emptyOptions = Object.entries(options).filter(([, v]) => v === '');
@@ -66,7 +64,7 @@ export default ({ setHeadComponents }, pluginOptions) => {
     ;NREUM.info={beacon:"${options.beacon}",errorBeacon:"${options.errorBeacon}",licenseKey:"${options.licenseKey}",applicationID:"${options.applicationID}",sa:1}
   `;
 
-  if (agent && configs) { 
+  if (agent && configs) {
     setHeadComponents([
       <script
         key="gatsby-plugin-newrelic"
