@@ -57,7 +57,7 @@ The New Relic Gatsby Plugin provides a simple to use configuration option for in
             trustKey: '<some integer>',
             agentID: '<some integer>',
             licenseKey: '<the license key>',
-            applicationID: process.env.GATSBY_NEWRELIC_ENV === "production" ? '<some integer>' : '<some other integer>',
+            applicationID: process.env.YOUR_ENVIRONMENT_KEY === "production" ? '<some integer>' : '<some other integer>',
             beacon: 'bam.nr-data.net',
             errorBeacon: 'bam.nr-data.net'
         }
