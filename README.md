@@ -1,6 +1,7 @@
 [![Community Project header](https://github.com/newrelic/open-source-office/raw/master/examples/categories/images/Community_Project.png)](https://github.com/newrelic/open-source-office/blob/master/examples/categories/index.md#community-project)
 
 # New Relic Gatsby Plugin
+
 [![Known Vulnerabilities][3]][4]
 [![npm status badge][1]][2]
 
@@ -63,7 +64,7 @@ The New Relic Gatsby Plugin provides a simple to use configuration option for in
         }
       }
     }
-    ```  
+    ```
 
 ## Getting Started
 
