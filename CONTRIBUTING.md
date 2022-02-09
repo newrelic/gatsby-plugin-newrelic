@@ -22,7 +22,7 @@ Before submitting an Issue, please search for similar ones in the
 
  A [Github workflow](https://github.com/newrelic/gatsby-plugin-newrelic/blob/main/.github/workflows/release.yml) which uses NPX [semantic-release](https://semantic-release.gitbook.io/semantic-release/usage/configuration#branches) exists to assist in publishing next versions of this plugin to NPM.
 
- > If you wish to publish a next version to NPM follow these steps.
+ > If you wish to publish a latest version to NPM follow these steps but ensure you change the tag in [package.json](package.json) to latest
 
  1. Make your changes on a local branch from main.
  2. After pulling down the code, run `git fetch && git pull` to ensure you have the latest code for main.
