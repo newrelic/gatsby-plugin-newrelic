@@ -1,3 +1,10 @@
+## [2.2.2](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.2.1...v2.2.2) (2022-02-09)
+
+
+### Bug Fixes
+
+* publishes a latest version ([c2e68bb](https://github.com/newrelic/gatsby-plugin-newrelic/commit/c2e68bbe191c1ee4ea7657ecd44f953bc7213a2b))
+
 ## [2.2.1](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.2.0...v2.2.1) (2022-02-08)
 
 
