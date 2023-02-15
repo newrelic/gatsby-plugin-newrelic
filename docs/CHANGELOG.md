@@ -1,3 +1,10 @@
+## [2.2.3](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.2.2...v2.2.3) (2023-02-15)
+
+
+### Bug Fixes
+
+* update react in peer deps to 17-18 ([d6e9c18](https://github.com/newrelic/gatsby-plugin-newrelic/commit/d6e9c18140b080d3186d875c22a1492158797516))
+
 ## [2.2.2](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.2.1...v2.2.2) (2022-02-09)
 
 
