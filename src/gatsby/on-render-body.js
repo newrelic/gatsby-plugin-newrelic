@@ -1,5 +1,4 @@
 import React from 'react';
-import { liteAgent, proAgent, proAndSpaAgent } from '../browser-agents/latest';
 
 export default ({ setHeadComponents }, pluginOptions) => {
   const {
@@ -46,32 +45,32 @@ export default ({ setHeadComponents }, pluginOptions) => {
     // TO DO - Warn about missing options
   }
 
-  let agent;
+  let fetchAgent;
   if (instrumentationType === 'lite') {
-    agent = liteAgent;
+    fetchAgent = fetch("https://js-agent.newrelic.com/nr-loader-rum-current.min.js");
   }
 
   if (instrumentationType === 'pro') {
-    agent = proAgent;
+    fetchAgent = fetch("https://js-agent.newrelic.com/nr-loader-full-current.min.js");
   }
 
   if (instrumentationType === 'proAndSPA') {
-    agent = proAndSpaAgent;
+    fetchAgent = fetch("https://js-agent.newrelic.com/nr-loader-spa-current.min.js");
   }
 
   const configs = `
-    ;NREUM.loader_config={accountID:"${options.accountId}",trustKey:"${options.trustKey}",agentID:"${options.agentID}",licenseKey:"${options.licenseKey}",applicationID:"${options.applicationID}"}
-    ;NREUM.info={beacon:"${options.beacon}",errorBeacon:"${options.errorBeacon}",licenseKey:"${options.licenseKey}",applicationID:"${options.applicationID}",sa:1}
+    ;NREUM.loader_config={accountID:"${options.accountId}",trustKey:"${options.trustKey}",agentID:"${options.agentID}",licenseKey:"${options.licenseKey}",applicationID:"${options.applicationID}"};
+    NREUM.info={beacon:"${options.beacon}",errorBeacon:"${options.errorBeacon}",licenseKey:"${options.licenseKey}",applicationID:"${options.applicationID}",sa:1};
   `;
 
-  if (agent && configs) {
+  fetchAgent?.then(resp => resp.text()).then(agent => {
     setHeadComponents([
       <script
         key="gatsby-plugin-newrelic"
         dangerouslySetInnerHTML={{
-          __html: agent + configs
+          __html: configs + agent
         }}
       />
     ]);
-  }
+  });
 };
