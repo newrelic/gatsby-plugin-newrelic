@@ -29,7 +29,7 @@
   },
   "license": "Apache-2",
   "dependencies": {
-    "@babel/runtime": "^7.0.0"
+    "@babel/runtime": "^7.17.8"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
