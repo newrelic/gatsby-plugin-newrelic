@@ -4,6 +4,7 @@
   "description": "Gatsby plugin for implementing the New Relic Browser agent",
   "main": "index.js",
   "scripts": {
+    "prebuild": "cross-env node prepare.js",
     "build": "babel src --out-dir . --ignore **/__tests__",
     "watch": "babel -w src --out-dir . --ignore **/__tests__",
     "prepare": "cross-env NODE_ENV=production npm run build"

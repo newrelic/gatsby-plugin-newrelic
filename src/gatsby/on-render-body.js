@@ -1,5 +1,5 @@
 import React from 'react';
-import { liteAgent, proAgent, proAndSpaAgent } from '../browser-agents/latest';
+import { liteAgent, proAgent, proAndSpaAgent } from '../../.cache/nr-latest';
 
 export default ({ setHeadComponents }, pluginOptions) => {
   const {
@@ -71,7 +71,7 @@ export default ({ setHeadComponents }, pluginOptions) => {
         dangerouslySetInnerHTML={{
           __html: agent + configs
         }}
-      />
+      />,
     ]);
   }
 };
