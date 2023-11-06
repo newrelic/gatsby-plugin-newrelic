@@ -71,7 +71,7 @@ export default ({ setHeadComponents }, pluginOptions) => {
         dangerouslySetInnerHTML={{
           __html: agent + configs
         }}
-      />,
+      />
     ]);
   }
 };
