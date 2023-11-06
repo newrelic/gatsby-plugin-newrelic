@@ -1,5 +1,5 @@
 import React from 'react';
-import { liteAgent, proAgent, proAndSpaAgent } from '../../.cache/nr-latest';
+import { liteAgent, proAgent, proAndSpaAgent } from '../browser-agents/latest';
 
 export default ({ setHeadComponents }, pluginOptions) => {
   const {
