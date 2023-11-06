@@ -69,7 +69,7 @@ export default ({ setHeadComponents }, pluginOptions) => {
       <script
         key="gatsby-plugin-newrelic"
         dangerouslySetInnerHTML={{
-          __html: agent + configs
+          __html: configs + agent
         }}
       />
     ]);
