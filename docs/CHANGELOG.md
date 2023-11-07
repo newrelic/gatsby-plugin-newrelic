@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.3.0...v2.4.0) (2023-11-07)
+
+
+### Features
+
+* use this to release a new version of the gatsby plugin newrelic ([71cebe4](https://github.com/newrelic/gatsby-plugin-newrelic/commit/71cebe4f9ce12be03c5ed31ca45c2a5a8e931c30))
+
 # [2.3.0](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.2.3...v2.3.0) (2023-04-12)
 
 
