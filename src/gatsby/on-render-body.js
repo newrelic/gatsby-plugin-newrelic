@@ -46,6 +46,8 @@ export default ({ setHeadComponents }, pluginOptions) => {
     // TO DO - Warn about missing options
   }
 
+  const init = ';window.NREUM||(NREUM={});NREUM.init={distributed_tracing:{enabled:true},privacy:{cookies_enabled:true},ajax:{deny_list:["bam.nr-data.net"]}};';
+
   let agent;
   if (instrumentationType === 'lite') {
     agent = liteAgent;
@@ -69,7 +71,7 @@ export default ({ setHeadComponents }, pluginOptions) => {
       <script
         key="gatsby-plugin-newrelic"
         dangerouslySetInnerHTML={{
-          __html: agent + configs
+          __html: init + agent + configs
         }}
       />
     ]);
