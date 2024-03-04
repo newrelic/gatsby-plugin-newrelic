@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.4.0...v2.5.0) (2024-03-04)
+
+
+### Features
+
+* add support for custom browser agent settings ([6f1cd24](https://github.com/newrelic/gatsby-plugin-newrelic/commit/6f1cd244365146d41a70b406a710f20c8077f66c))
+
 # [2.4.0](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.3.0...v2.4.0) (2023-11-07)
 
 
