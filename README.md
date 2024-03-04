@@ -21,50 +21,92 @@ The New Relic Gatsby Plugin provides a simple to use configuration option for in
 1. Open your `gatsby-config.js` file for your project
 1. You'll need to copy information from the JS snippet, which looks like this:
 
-    ```js
-    ;NREUM.loader_config={accountID:"<your account id>",trustKey:"<some integer>",agentID:"<some integer>",licenseKey:"<your license key>",applicationID:"<some integer>"}
-    ;NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"<your license key>",applicationID:"<some integer>",sa:1}
-    ```
+   ```js
+   // use this line for the `settings` object
+   window.NREUM || (NREUM = {});
+   NREUM.init = {
+     distributed_tracing: { enabled: true },
+     privacy: { cookies_enabled: true },
+     ajax: { deny_list: ["bam-cell.nr-data.net"] },
+   };
 
-    and turn it into a `gatsby-config`, adding it to `gatsby-config.js` as a plugin
+   // use these lines for the `config` object
+   NREUM.loader_config = {
+     accountID: "<your account id>",
+     trustKey: "<some integer>",
+     agentID: "<some integer>",
+     licenseKey: "<your license key>",
+     applicationID: "<some integer>",
+   };
+   NREUM.info = {
+     beacon: "bam.nr-data.net",
+     errorBeacon: "bam.nr-data.net",
+     licenseKey: "<your license key>",
+     applicationID: "<some integer>",
+     sa: 1,
+   };
+   ```
 
-     ```js
-    {
-      resolve: 'gatsby-plugin-newrelic',
-      options: {
-        config: {
-            instrumentationType: 'proAndSPA',
-            accountId: '<some integer>',
-            trustKey: '<some integer>',
-            agentID: '<some integer>',
-            licenseKey: '<the license key>',
-            applicationID: '<some integer>',
-            beacon: 'bam.nr-data.net',
-            errorBeacon: 'bam.nr-data.net'
-        }
+   and turn it into a `gatsby-config` object, adding it to `gatsby-config.js` as a plugin
+
+   ```js
+   {
+    resolve: 'gatsby-plugin-newrelic',
+    options: {
+      config: {
+          instrumentationType: 'proAndSPA',
+          accountId: '<some integer>',
+          trustKey: '<some integer>',
+          agentID: '<some integer>',
+          licenseKey: '<the license key>',
+          applicationID: '<some integer>',
+          beacon: 'bam.nr-data.net',
+          errorBeacon: 'bam.nr-data.net'
+          settings: {
+            distributed_tracing: { enabled: true },
+            privacy: { cookies_enabled: true },
+            ajax: { deny_list: ["bam-cell.nr-data.net"] },
+          }
       }
     }
-    ```
+   }
+   ```
 
-    If you have a need for multiple environments, you can configure this like:
+   If you have a need for multiple environments, you can configure this like:
 
-    ```js
-    {
-      resolve: 'gatsby-plugin-newrelic',
-      options: {
-        config: {
-            instrumentationType: 'proAndSPA',
-            accountId: '<some integer>',
-            trustKey: '<some integer>',
-            agentID: '<some integer>',
-            licenseKey: '<the license key>',
-            applicationID: process.env.YOUR_ENVIRONMENT_KEY === "production" ? '<some integer>' : '<some other integer>',
-            beacon: 'bam.nr-data.net',
-            errorBeacon: 'bam.nr-data.net'
-        }
-      }
-    }
-    ```
+   ```js
+   {
+     resolve: 'gatsby-plugin-newrelic',
+     options: {
+       config: {
+           instrumentationType: 'proAndSPA',
+           accountId: '<some integer>',
+           trustKey: '<some integer>',
+           agentID: '<some integer>',
+           licenseKey: '<the license key>',
+           applicationID: process.env.YOUR_ENVIRONMENT_KEY === "production" ? '<some integer>' : '<some other integer>',
+           beacon: 'bam.nr-data.net',
+           errorBeacon: 'bam.nr-data.net'
+       }
+     }
+   }
+   ```
+
+   If you have selected custom Session Replay values for `block_selector` or `mask_text_selector`, replace the surrounding single quotes(') with back ticks (`)
+
+   ```js
+   {
+       settings: {
+        session_replay: {
+          enabled: true,
+        // block_selector: '[autocomplete="cc-number"], [autocomplete="cc-name"]',
+          block_selector: `[autocomplete="cc-number"], [autocomplete="cc-name"]`,
+        // mask_text_selector: '.className1, #elementID'`,
+          mask_text_selector: `.className1, #elementID`,
+       }
+     }
+   }
+   ```
 
 ## Getting Started
 
@@ -74,7 +116,7 @@ Navigate to [https://one.newrelic.com](https://one.newrelic.com), select the _En
 
 New Relic hosts and moderates an online forum where customers can interact with New Relic employees as well as other customers to get help and share best practices. Like all official New Relic open source projects, there's a related Community topic in the New Relic Explorers Hub. You can find this project's topic/threads here:
 
->Add the url for the support thread here
+> Add the url for the support thread here
 
 ## Contributing
 
