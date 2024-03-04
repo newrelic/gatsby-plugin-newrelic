@@ -50,116 +50,132 @@ export default ({ setHeadComponents }, pluginOptions) => {
   }
 
   // --- Possible Browser > Application Settings in the NR1 UI and their options ---
-  const { settings } = options;
+  // Do not supply hard coded defaults for missing options. If the key is not provided, let the browser agent handle those values.
+  let init;
+  if (options?.settings) {
+    const {
+      distributed_tracing: dt,
+      session_replay: sr,
+      privacy,
+      ajax,
+    } = options?.settings;
 
-  // 'Distributed tracing'
-  // not present in init string if not enabled
-  let distributedTracingInitString = "";
+    // 'Distributed tracing'
+    let distributedTracingInitString = "";
 
-  if (settings.distributed_tracing?.enabled) {
-    const dt = settings.distributed_tracing;
-
-    // Agent default settings if they are not provided
-    const distributedTracingConfigObject = {
-      enabled: dt.enabled ?? false,
-      exclude_newrelic_header: dt.exclude_newrelic_header ?? undefined,
-      cors_use_newrelic_header: dt.cors_use_newrelic_header ?? undefined,
-      cors_use_tracecontext_headers:
-        dt.cors_use_tracecontext_headers ?? undefined,
-      allowed_origins: dt.allowed_origins
-        ? `${JSON.stringify(dt.allowed_origins)}`
-        : undefined,
-    };
-
-    let distributedTracingConfigString = "";
-
-    for (const key in distributedTracingConfigObject) {
-      distributedTracingConfigString = distributedTracingConfigString.concat(
-        `${key}:${distributedTracingConfigObject[key]},`
-      );
-    }
-
-    distributedTracingInitString = `distributed_tracing:{${distributedTracingConfigString}},`;
-  }
-
-  // 'Session Replay'
-  // not present in init string if not enabled
-  let sessionReplayInitString = "";
-
-  if (settings.session_replay?.enabled) {
-    const sr = settings.session_replay;
-    let maskOptionsString = "";
-
-    // if user selects custom privacy settings:
-
-    // if 'mask_all_inputs' not set, defaults to true and sets these options to its own default values
-    if (sr.mask_all_inputs !== true) {
-      // if no options set and 'mask_all_inputs' = false, agent defaults all to 'false'
-      const maskOptionsObject = {
-        color: sr.mask_input_options?.color ?? false,
-        date: sr.mask_input_options?.date ?? false,
-        datetime_local: sr.mask_input_options?.datetime_local ?? false,
-        email: sr.mask_input_options?.email ?? false,
-        month: sr.mask_input_options?.month ?? false,
-        number: sr.mask_input_options?.number ?? false,
-        range: sr.mask_input_options?.range ?? false,
-        search: sr.mask_input_options?.search ?? false,
-        tel: sr.mask_input_options?.tel ?? false,
-        text: sr.mask_input_options?.text ?? false,
-        time: sr.mask_input_options?.time ?? false,
-        url: sr.mask_input_options?.url ?? false,
-        week: sr.mask_input_options?.week ?? false,
-        text_area: sr.mask_input_options?.text_area ?? false,
-        select: sr.mask_input_options?.select ?? false,
+    if (dt?.enabled) {
+      const distributedTracingConfigObject = {
+        enabled: `enabled:${dt.enabled}`,
+        exclude_newrelic_header: dt.exclude_newrelic_header
+          ? `exclude_newrelic_header:${dt.exclude_newrelic_header}`
+          : "",
+        cors_use_newrelic_header: dt.cors_use_newrelic_header
+          ? `cors_use_newrelic_header:${dt.cors_use_newrelic_header}`
+          : "",
+        cors_use_tracecontext_headers: dt.cors_use_tracecontext_headers
+          ? `cors_use_tracecontext_headers:${dt.cors_use_tracecontext_headers}`
+          : "",
+        allowed_origins: dt.allowed_origins
+          ? `dt.allowed_origins:${JSON.stringify(dt.allowed_origins)}`
+          : "",
       };
 
-      for (const key in maskOptionsObject) {
-        maskOptionsString = maskOptionsString.concat(
-          `${key}:${maskOptionsObject[key]},`
-        );
-      }
+      distributedTracingInitString = `distributed_tracing:{${Object.values(
+        distributedTracingConfigObject
+      )
+        .filter((v) => v !== "")
+        .join(",")}},`;
     }
 
-    // Agent default settings if they are not provided
-    const sessionReplayConfigObject = {
-      enabled: `enabled:${sr.enabled ?? false}`,
-      block_selector: `block_selector:'${sr.block_selector ?? ""}'`,
-      mask_text_selector: `mask_text_selector:'${
-        sr.mask_text_selector ?? "*"
-      }'`,
-      sampling_rate: `sampling_rate:${sr.sampling_rate ?? 50}`,
-      error_sampling_rate: `error_sampling_rate:${
-        sr.error_sampling_rate ?? 50
-      }`,
-      mask_all_inputs: `mask_all_inputs:${sr.mask_all_inputs ?? true}`,
-      collect_fonts: `collect_fonts:${sr.collect_fonts ?? true}`,
-      inline_images: `inline_images:${sr.inline_images ?? false}`,
-      inline_stylesheet: `inline_stylesheet:${sr.inline_stylesheet ?? true}`,
-      mask_input_options: `mask_input_options:{${maskOptionsString}}`,
-    };
+    // 'Session Replay'
+    let sessionReplayInitString = "";
 
-    let sessionReplayConfigString = "";
+    if (sr?.enabled) {
+      let maskOptionsString = "";
+      const mOption = sr.mask_input_options;
 
-    for (const key in sessionReplayConfigObject) {
-      sessionReplayConfigString = sessionReplayConfigString.concat(
-        `${sessionReplayConfigObject[key]},`
-      );
+      // if user selects custom privacy settings:
+      const maskOptionsObject = {
+        color: mOption?.color ? `color:${mOption?.color}` : "",
+        date: mOption?.date ? `date:${mOption?.date}` : "",
+        datetime_local: mOption?.datetime_local
+          ? `datetime_local:${mOption?.datetime_local}`
+          : "",
+        email: mOption?.email ? `email:${mOption?.email}` : "",
+        month: mOption?.month ? `month:${mOption?.month}` : "",
+        number: mOption?.number ? `number:${mOption?.number}` : "",
+        range: mOption?.range ? `range:${mOption?.range}` : "",
+        search: mOption?.search ? `search:${mOption?.search}` : "",
+        tel: mOption?.tel ? `tel:${mOption?.tel}` : "",
+        text: mOption?.text ? `text:${mOption?.text}` : "",
+        time: mOption?.time ? `time:${mOption?.time}` : "",
+        url: mOption?.url ? `url:${mOption?.url}` : "",
+        week: mOption?.week ? `week:${mOption?.week}` : "",
+        text_area: mOption?.text_area ? `text_area:${mOption?.text_area}` : "",
+        select: mOption?.select ? `select:${mOption?.select}` : "",
+      };
+
+      maskOptionsString = `${Object.values(maskOptionsObject)
+        .filter((v) => v !== "")
+        .join(",")}`;
+
+      const sessionReplayConfigObject = {
+        enabled: sr.enabled ? `enabled:${sr.enabled}` : "",
+        block_selector: sr.block_selector
+          ? `block_selector:'${sr.block_selector}'`
+          : "",
+        mask_text_selector: sr.mask_text_selector
+          ? `mask_text_selector:'${sr.mask_text_selector}'`
+          : "",
+        sampling_rate: sr.sampling_rate
+          ? `sampling_rate:${sr.sampling_rate}`
+          : "",
+        error_sampling_rate: sr.error_sampling_rate
+          ? `error_sampling_rate:${sr.error_sampling_rate}`
+          : "",
+        mask_all_inputs: sr.mask_all_inputs
+          ? `mask_all_inputs:${sr.mask_all_inputs}`
+          : "",
+        collect_fonts: sr.collect_fonts
+          ? `collect_fonts:${sr.collect_fonts}`
+          : "",
+        inline_images: sr.inline_images
+          ? `inline_images:${sr.inline_images}`
+          : "",
+        inline_stylesheet: sr.inline_stylesheet
+          ? `inline_stylesheet:${sr.inline_stylesheet}`
+          : "",
+        mask_input_options:
+          maskOptionsString.length > 0
+            ? `mask_input_options:{${maskOptionsString}}`
+            : "",
+      };
+
+      sessionReplayInitString = `session_replay:{${Object.values(
+        sessionReplayConfigObject
+      )
+        .filter((v) => v !== "")
+        .join(",")}},`;
     }
 
-    sessionReplayInitString = `session_replay:{${sessionReplayConfigString}},`;
+    // 'Browser Settings'
+    const privacyInitString = privacy?.cookies_enabled
+      ? `privacy:{cookies_enabled:${privacy?.cookies_enabled}},`
+      : "";
+
+    // 'AJAX request deny list'
+    const ajaxInitString = ajax?.deny_list
+      ? `ajax:{deny_list:${JSON.stringify(ajax?.deny_list)}},`
+      : "";
+
+    init =
+      sessionReplayInitString ||
+      distributedTracingInitString ||
+      privacyInitString ||
+      ajaxInitString
+        ? `;window.NREUM||(NREUM={});NREUM.init={${sessionReplayInitString}${distributedTracingInitString}${privacyInitString}${ajaxInitString}};`
+        : "";
   }
-
-  // 'Browser Settings' - defaults to true
-  const privacyInitString = `privacy:{cookies_enabled:${
-    settings.privacy?.cookies_enabled ?? "true"
-  }},`;
-
-  // 'AJAX request deny list' - ajax:{deny_list:["bam-cell.nr-data.net"]} is default for prod accounts
-  const ajaxInitString = `ajax:{deny_list:${JSON.stringify(
-    settings.ajax?.deny_list ?? ["bam-cell.nr-data.net"]
-  )}},`;
-
-  const init = `;window.NREUM||(NREUM={});NREUM.init={${sessionReplayInitString}${distributedTracingInitString}${privacyInitString}${ajaxInitString}};`;
 
   let agent;
   if (instrumentationType === "lite") {
