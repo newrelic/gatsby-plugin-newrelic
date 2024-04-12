@@ -1,3 +1,10 @@
+# [2.6.0](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.5.0...v2.6.0) (2024-04-12)
+
+
+### Features
+
+* update browser agents ([93d55fa](https://github.com/newrelic/gatsby-plugin-newrelic/commit/93d55fa93daf11ebfcbf3cf6594e838334b1ba32))
+
 # [2.5.0](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.4.0...v2.5.0) (2024-03-04)
 
 
