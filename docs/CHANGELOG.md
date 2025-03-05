@@ -1,3 +1,12 @@
+# [2.7.0](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.6.0...v2.7.0) (2025-03-05)
+
+
+### Features
+
+* update actions/cache@v1 to actions/cache@v3 ([c51aa96](https://github.com/newrelic/gatsby-plugin-newrelic/commit/c51aa96586a6eef20835e06307cdf56ff6f4b242))
+* update browser agents ([ec49b60](https://github.com/newrelic/gatsby-plugin-newrelic/commit/ec49b600a50d4d5248043b1789c2fecc2d662a89))
+* update workflow ([12dd646](https://github.com/newrelic/gatsby-plugin-newrelic/commit/12dd646e583f10c5e25dc3326c83494e11d40158))
+
 # [2.6.0](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.5.0...v2.6.0) (2024-04-12)
 
 
