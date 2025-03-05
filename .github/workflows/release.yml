@@ -44,7 +44,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v1
@@ -83,8 +85,9 @@ jobs:
       # Checkout fetch-depth: 2 because there's a check to see if package.json
       # was updated, and need at least 2 commits for the check to function properly
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
+          persist-credentials: false
           fetch-depth: 2
 
       - name: Setup Node.js
@@ -204,8 +207,9 @@ jobs:
 
       # Checkout specific branch we just committed third_party_notices too
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
+          persist-credentials: false
           ref: ${{ steps.extract_source.outputs.branch }}
 
       - name: Setup Node.js
