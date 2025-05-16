@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-newrelic",
-  "version": "2.8.0",
+  "version": "2.9.0",
   "description": "Gatsby plugin for implementing the New Relic Browser agent",
   "main": "index.js",
   "scripts": {

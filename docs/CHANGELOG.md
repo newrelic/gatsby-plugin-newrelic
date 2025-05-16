@@ -1,3 +1,10 @@
+# [2.9.0](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.8.0...v2.9.0) (2025-05-16)
+
+
+### Features
+
+* Update latest.js to add bot detection ([b98c4e8](https://github.com/newrelic/gatsby-plugin-newrelic/commit/b98c4e8cfb17b741980406aead5b6918610fd2f6))
+
 # [2.8.0](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.7.0...v2.8.0) (2025-05-06)
 
 
