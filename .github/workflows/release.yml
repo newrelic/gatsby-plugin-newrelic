@@ -44,12 +44,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: 16.x
 
@@ -85,13 +85,13 @@ jobs:
       # Checkout fetch-depth: 2 because there's a check to see if package.json
       # was updated, and need at least 2 commits for the check to function properly
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
           fetch-depth: 2
 
       - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: 16.x
 
@@ -197,6 +197,12 @@ jobs:
   job-generate-release:
     runs-on: ubuntu-latest
     needs: [job-checkout-and-build, job-generate-third-party-notices]
+    
+
+    permissions:
+      contents: write # To push commits, tags, and GH Releases
+      id-token: write # To authenticate with npm via OIDC
+
     steps:
       - name: Extract source variables
         run: |
@@ -207,19 +213,20 @@ jobs:
 
       # Checkout specific branch we just committed third_party_notices too
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
           ref: ${{ steps.extract_source.outputs.branch }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
-          node-version: 16.x
+          node-version: 20.x
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Download Cached Deps
         id: cache-node-modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         env:
           cache-name: node-modules
         with:
@@ -267,7 +274,6 @@ jobs:
           GIT_COMMITTER_NAME: "nr-opensource-bot"
           GIT_COMMITTER_EMAIL: "opensource+bot@newrelic.com"
           GITHUB_TOKEN: ${{ secrets.OPENSOURCE_BOT_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
 
       - name: Re-enable "required_pull_request_reviews" branch protection
