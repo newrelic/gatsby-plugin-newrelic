@@ -1,5 +1,4 @@
 import React from "react";
-import { liteAgent, proAgent, proAndSpaAgent } from "../browser-agents/latest";
 
 export default ({ setHeadComponents }, pluginOptions) => {
   const { configs: userConfigs, config: userConfig } = pluginOptions;
@@ -42,7 +41,10 @@ export default ({ setHeadComponents }, pluginOptions) => {
   }
 
   const options = { ...requiredConfig, ...userEnvConfig };
-  const instrumentationType = options.instrumentationType;
+  let loaderType
+  if (options.instrumentationType === 'lite') loaderType = 'rum';
+  else if (options.instrumentationType === 'pro') loaderType = 'full';
+  else if (options.instrumentationType === 'proAndSPA') loaderType = 'spa';
 
   const emptyOptions = Object.entries(options).filter(([, v]) => v === "");
   if (emptyOptions.length > 0) {
@@ -177,32 +179,29 @@ export default ({ setHeadComponents }, pluginOptions) => {
         : "";
   }
 
-  let agent;
-  if (instrumentationType === "lite") {
-    agent = liteAgent;
-  }
-
-  if (instrumentationType === "pro") {
-    agent = proAgent;
-  }
-
-  if (instrumentationType === "proAndSPA") {
-    agent = proAndSpaAgent;
-  }
-
   const configs = `
     ;NREUM.loader_config={accountID:"${options.accountId}",trustKey:"${options.trustKey}",agentID:"${options.agentID}",licenseKey:"${options.licenseKey}",applicationID:"${options.applicationID}"}
     ;NREUM.info={beacon:"${options.beacon}",errorBeacon:"${options.errorBeacon}",licenseKey:"${options.licenseKey}",applicationID:"${options.applicationID}",sa:1}
   `;
 
-  if (agent && configs) {
+  if (agent && configs && loaderType) {
     setHeadComponents([
       <script
-        key="gatsby-plugin-newrelic"
+        key="nr-init"
         dangerouslySetInnerHTML={{
-          __html: init + agent + configs,
+          __html: init,
         }}
       />,
+      <script
+        key="nr-configs"
+        dangerouslySetInnerHTML={{
+          __html: configs,
+        }}
+      />,
+      <script
+        key="nr-agent"
+        src={`https://js-agent.newrelic.com/nr-loader-${loaderType}-1.x.x.min.js`}
+      />
     ]);
   }
 };
