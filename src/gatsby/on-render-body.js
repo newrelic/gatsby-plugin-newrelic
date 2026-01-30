@@ -12,6 +12,7 @@ export default ({ setHeadComponents }, pluginOptions) => {
     beacon: "bam.nr-data.net",
     errorBeacon: "bam.nr-data.net",
     instrumentationType: "lite", // Options are 'lite', 'pro', 'proAndSPA'
+    browserAgentVersion: '1.x.x' // Can provide a specific version, e.g. 1.298.0.  No version will default to 1.x.x, e.g. the lastest stable version
   };
 
   const env = process.env.GATSBY_NEWRELIC_ENV;
@@ -41,8 +42,7 @@ export default ({ setHeadComponents }, pluginOptions) => {
   }
 
   const options = { ...requiredConfig, ...userEnvConfig };
-  let loaderType
-  if (options.instrumentationType === 'lite') loaderType = 'rum';
+  let loaderType = 'rum'
   else if (options.instrumentationType === 'pro') loaderType = 'full';
   else if (options.instrumentationType === 'proAndSPA') loaderType = 'spa';
 
@@ -200,7 +200,7 @@ export default ({ setHeadComponents }, pluginOptions) => {
       />,
       <script
         key="nr-agent"
-        src={`https://js-agent.newrelic.com/nr-loader-${loaderType}-1.x.x.min.js`}
+        src={`https://js-agent.newrelic.com/nr-loader-${loaderType}-${options.browserAgentVersion}.min.js`}
       />
     ]);
   }
