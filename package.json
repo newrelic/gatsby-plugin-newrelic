@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prebuild": "cross-env node scripts/prepare.js",
-    "build": "babel src --out-dir . --ignore **/__tests__",
+    "build": "babel src --out-dir . --ignore **/__tests__ && cp -r src/browser-agents browser-agents",
     "watch": "babel -w src --out-dir . --ignore **/__tests__",
     "prepare": "cross-env NODE_ENV=production npm run build"
   },
