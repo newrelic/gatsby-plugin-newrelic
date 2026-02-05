@@ -276,6 +276,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.OPENSOURCE_BOT_TOKEN }}
         run: npx semantic-release
 
+      - name: Publish to npm with provenance
+        run: npm publish --provenance --access public
+
       - name: Re-enable "required_pull_request_reviews" branch protection
         id: enable-branch-protection
         if: always()
