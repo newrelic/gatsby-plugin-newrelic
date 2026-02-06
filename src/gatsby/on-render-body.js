@@ -42,7 +42,8 @@ export default ({ setHeadComponents }, pluginOptions) => {
   }
 
   const options = { ...requiredConfig, ...userEnvConfig };
-  let loaderType = 'rum'
+  let loaderType = 'rum';
+  if (options.instrumentationType === 'lite') loaderType = 'rum';
   else if (options.instrumentationType === 'pro') loaderType = 'full';
   else if (options.instrumentationType === 'proAndSPA') loaderType = 'spa';
 
@@ -184,7 +185,7 @@ export default ({ setHeadComponents }, pluginOptions) => {
     ;NREUM.info={beacon:"${options.beacon}",errorBeacon:"${options.errorBeacon}",licenseKey:"${options.licenseKey}",applicationID:"${options.applicationID}",sa:1}
   `;
 
-  if (agent && configs && loaderType) {
+  if (configs && loaderType) {
     setHeadComponents([
       <script
         key="nr-init"
