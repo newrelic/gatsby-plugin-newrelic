@@ -53,6 +53,6 @@
   "private": false,
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
-    "tag": "latest"
+    "tag": "next"
   }
 }
