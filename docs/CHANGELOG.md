@@ -1,3 +1,15 @@
+# [2.10.0](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.9.1...v2.10.0) (2026-02-11)
+
+
+### Bug Fixes
+
+* babel parsing issues ([e423b0b](https://github.com/newrelic/gatsby-plugin-newrelic/commit/e423b0b515b4053acb1a164b3df39fa9100a80fa))
+
+
+### Features
+
+* Always load the latest browser agent version ([88a8082](https://github.com/newrelic/gatsby-plugin-newrelic/commit/88a808205774e08471c83a12b298c64737fd618b))
+
 ## [2.9.1](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.9.0...v2.9.1) (2026-02-04)
 
 
