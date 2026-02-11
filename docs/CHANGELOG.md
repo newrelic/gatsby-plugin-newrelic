@@ -1,3 +1,16 @@
+## [2.9.1](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.9.0...v2.9.1) (2026-02-04)
+
+
+### Bug Fixes
+
+* babel parsing issues ([5e271f5](https://github.com/newrelic/gatsby-plugin-newrelic/commit/5e271f53a9078385c762ee28d4b2121c008ea59d))
+* babel parsing issues ([a163fc7](https://github.com/newrelic/gatsby-plugin-newrelic/commit/a163fc793a0cd03b38e6ba8c883824ae8f3c2eed))
+* babel parsing issues ([ea0f6ed](https://github.com/newrelic/gatsby-plugin-newrelic/commit/ea0f6ed9de6689b147b1c5bf67e85c94eff4e7f1))
+* babel parsing issues ([d4d96e3](https://github.com/newrelic/gatsby-plugin-newrelic/commit/d4d96e331c1f651e7ca42d97417b2ed04c6d8269))
+* support trusted OIDC publishing ([4dd8517](https://github.com/newrelic/gatsby-plugin-newrelic/commit/4dd85174ce02a87949bf9be86899c58df34e9f4c))
+* suupport thrusted OIDC publishing ([d141b0c](https://github.com/newrelic/gatsby-plugin-newrelic/commit/d141b0c6cad0827b72ffe550ee8b517ca219436d))
+* suupport thrusted OIDC publishing ([843c223](https://github.com/newrelic/gatsby-plugin-newrelic/commit/843c223814c87e7fc49d1c87d8834620f521294e))
+
 # [2.9.0](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.8.0...v2.9.0) (2025-05-16)
 
 
