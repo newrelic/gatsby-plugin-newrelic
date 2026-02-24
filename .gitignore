@@ -3,4 +3,3 @@ node_modules/
 # Ignore build files
 /*.js
 /gatsby
-/browser-agents
