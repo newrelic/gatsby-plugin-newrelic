@@ -1,3 +1,10 @@
+## [2.10.2](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.10.1...v2.10.2) (2026-02-24)
+
+
+### Bug Fixes
+
+* remove browser-agents files causing GraphQL extraction errors ([d89f3a5](https://github.com/newrelic/gatsby-plugin-newrelic/commit/d89f3a5c79ac8f7a697283f5ef1fc850a3765065)), closes [#85911](https://github.com/newrelic/gatsby-plugin-newrelic/issues/85911)
+
 # [2.10.0](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.9.1...v2.10.0) (2026-02-11)
 
 
