@@ -1,11 +1,10 @@
 {
   "name": "gatsby-plugin-newrelic",
-  "version": "2.10.1",
+  "version": "2.10.3",
   "description": "Gatsby plugin for implementing the New Relic Browser agent",
   "main": "index.js",
   "scripts": {
-    "prebuild": "cross-env node scripts/prepare.js",
-    "build": "babel src --out-dir . --ignore **/__tests__ && cp -r src/browser-agents browser-agents",
+    "build": "babel src --out-dir . --ignore **/__tests__",
     "watch": "babel -w src --out-dir . --ignore **/__tests__",
     "prepare": "cross-env NODE_ENV=production npm run build"
   },
@@ -47,6 +46,15 @@
     "cross-env": "^5.2.1",
     "semantic-release": "^24.0.0"
   },
+  "files": [
+    "index.js",
+    "gatsby-ssr.js",
+    "gatsby",
+    "LICENSE",
+    "README.md",
+    "THIRD_PARTY_NOTICES.md",
+    "third_party_manifest.json"
+  ],
   "engines": {
     "node": ">=16.3.1"
   },
