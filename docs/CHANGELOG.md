@@ -1,3 +1,10 @@
+## [2.10.3](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.10.2...v2.10.3) (2026-02-25)
+
+
+### Bug Fixes
+
+* ensure NREUM object exists before setting config properties ([768f5ba](https://github.com/newrelic/gatsby-plugin-newrelic/commit/768f5ba044e3e20c7c5c9119d2ad8042fe389e7b))
+
 ## [2.10.2](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.10.1...v2.10.2) (2026-02-24)
 
 
