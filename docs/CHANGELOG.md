@@ -1,3 +1,10 @@
+## [2.10.4](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.10.3...v2.10.4) (2026-07-22)
+
+
+### Bug Fixes
+
+* add explicit permissions to CI workflow jobs ([4f8220d](https://github.com/newrelic/gatsby-plugin-newrelic/commit/4f8220d5e967fafe3ee20f28a38fce755e8615fe))
+
 ## [2.10.3](https://github.com/newrelic/gatsby-plugin-newrelic/compare/v2.10.2...v2.10.3) (2026-02-25)
 
 
